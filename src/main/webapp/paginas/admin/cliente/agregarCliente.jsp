@@ -1,0 +1,70 @@
+
+<div class="modal fade" id="agregarClienteModal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header bg-success text-white font-weight-bolder">
+				<h5 class="modal-title">Agregar Cliente</h5>
+				<button class="close" data-dismiss="modal">
+					<span>&times;</span>
+				</button>
+			</div>
+			<form action="${pageContext.request.contextPath}/ServletControlador?accion=insertarCliente" method="post" class=" bg-light was-validated ">
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="nombre" class="font-weight-bolder">Nombre</label>
+						<input type="text" class="form-control" name="nombre" required placeholder="Ingrese su nombre..."></input>
+						<div class="valid-feedback">Valido.</div>
+						<div class="invalid-feedback">Por favor completar nombre.</div>
+					</div>
+					<div class="form-group">
+						<label for="apellido" class="font-weight-bolder">Apellido</label>
+						<input type="text" class="form-control" name="apellido" required placeholder="Ingrese su apellido..."></input>
+						<div class="valid-feedback">Valido.</div>
+						<div class="invalid-feedback">Por favor completar apellido.</div>
+					</div>
+					<div class="form-group">
+						<label for="email" class="font-weight-bolder">Email</label>
+						<input type="email" class="form-control" name="email" required placeholder="email@email.com " 
+						pattern="/([a-zA-Z0-9]+)([\_\.\-{1}])?([a-zA-Z0-9]+)\@([a-zA-Z0-9]+)([\.])([a-zA-Z\.]+)/g"></input>
+						<div class="valid-feedback">Valido.</div>
+						<div class="invalid-feedback">Por favor completar email.</div>
+					</div>
+					<div class="form-group">
+						<label for="apellido" class="font-weight-bolder">Dni</label>
+						<input type="text" class="form-control" name="dni" required placeholder="Ingrese su numero de dni..."></input>
+						<div class="valid-feedback">Valido.</div>
+						<div class="invalid-feedback">Por favor completar dni.</div>
+					</div>
+					<div class="form-group">
+						<label for="telefono" class="font-weight-bolder">Telefono:</label>
+						<input type="tel" class="form-control" name="telefono" required placeholder="Ingrese su numero de telefono..."></input>
+						<div class="valid-feedback">Valido.</div>
+						<div class="invalid-feedback">Por favor completar telefono.</div>
+					</div>
+					<div class="form-group">
+						<label for="direccion" class="font-weight-bolder">Direccion:</label>
+						<input type="text" class="form-control" name="direccion" required placeholder="Ingrese su domicilio..."></input>
+						<div class="valid-feedback">Valido.</div>
+						<div class="invalid-feedback">Por favor completar domicilio.</div>
+					</div>
+					<div class="form-group ">
+						<label for="membresia" class="font-weight-bolder ">Tipo de Membresia:</label>
+						<select class="form-control" class="form-select" name="membresia" id="membresia">
+  							<option value="Mensual">MENSUAL</option>
+ 							<option value="Bimestral">BIMESTRAL</option>
+						</select>
+						<div class="valid-feedback">Valido.</div>
+						<div class="invalid-feedback">Por favor completar tipo membresia.</div>
+					</div>
+					<div class="form-group">
+						<label for="estado" class="font-weight-bolder ">Estado:
+						<input type="checkbox" class="form-control" checked name="estado"></input></label>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success font-weight-bolder btn-block" type="submit">Guardar</button>
+				</div>
+			</form>
+		</div>
+		</div>
+</div>
