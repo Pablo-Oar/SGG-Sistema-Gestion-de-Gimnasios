@@ -12,6 +12,9 @@ public class LogicaCategoria {
 		catDao = new CategoriaDao();
 	}
 	
+	public int modificarCategoriaTipo(Producto producto) {
+		return catDao.modificarCategoriaTipo(producto);
+	}
 	
 	public int setearTipoCategoria(Producto producto) {
 		return  catDao.setearTipoCategoria(producto);

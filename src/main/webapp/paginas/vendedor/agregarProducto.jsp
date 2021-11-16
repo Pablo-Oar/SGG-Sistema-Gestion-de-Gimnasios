@@ -34,7 +34,7 @@
 					</div>
 					<div class="form-group ">
 						<label for="categoria" class="font-weight-bolder ">Categoria:</label>
-						<select class="form-control" class="form-select" name="membresia" id="categoria">
+						<select class="form-control" class="form-select" name="categoria">
   							<option value="Vestimenta">VESTIMENTA</option>
  							<option value="Suplementos">SUPLEMENTOS</option>
  							<option value="Articulos Entrenamiento">ARTICULOS ENTRENAMIENTO</option>

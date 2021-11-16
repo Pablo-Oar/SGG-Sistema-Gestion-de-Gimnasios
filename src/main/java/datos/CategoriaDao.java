@@ -11,6 +11,39 @@ public class CategoriaDao {
 	private static final String SQL_UPDATE = "UPDATE categoria SET descripcion=?, estado=?  WHERE idCategoria = ? ";
 	private static final String SQL_DELETE = "DELETE FROM categoria WHERE idCategoria = ?";
 	
+	public int modificarCategoriaTipo(Producto producto) {
+		
+		int registrosModificados = 0;
+		PreparedStatement stmt=null;
+		try {
+			
+			
+			  stmt=Conexion.getInstancia().getConnection().
+			  prepareStatement("UPDATE categoria c INNER JOIN categoria_producto cp ON c.idcategoria = cp.idcategoria_categoria INNER JOIN producto p ON cp.idcategoria_producto = p.idproducto SET cp.idcategoria_categoria = ? WHERE p.idproducto = ?;");
+			 
+			stmt.setInt(2, producto.getIdProducto());
+			if(producto.getDescripcionCategoria().equals("Vestimenta")) {
+				stmt.setInt(1,1);
+			}
+			else if(producto.getDescripcionCategoria().equals("Suplementos")) {
+				stmt.setInt(1,2);
+			}
+			else if(producto.getDescripcionCategoria().equals("Articulos Entrenamiento")) {
+				stmt.setInt(1,3);
+			}
+						
+			registrosModificados = stmt.executeUpdate();} 
+		catch (SQLException e) {
+			e.printStackTrace();}
+		finally {
+			try {
+				if(stmt!=null) {stmt.close();}
+					Conexion.getInstancia().releaseConn();} 
+			catch (SQLException e) {
+				e.printStackTrace();}}
+		return registrosModificados;
+	}	
+	
 public LinkedList<CategoriaProducto> listarCategorias()
 {
 	CategoriaProducto categoria = null;
@@ -60,7 +93,7 @@ public LinkedList<CategoriaProducto> getByType(CategoriaProducto membresiaABusca
 	ResultSet rs=null;
 	LinkedList<CategoriaProducto> categorias = new LinkedList<>();
 	try {
-		stmt=Conexion.getInstancia().getConnection().prepareStatement("SELECT * FROM membresia WHERE descripcion=?");
+		stmt=Conexion.getInstancia().getConnection().prepareStatement("SELECT * FROM categoria WHERE descripcion=?");
 		stmt.setString(1, membresiaABuscar.getDescripcion());
 		rs=stmt.executeQuery();
 		if(rs!=null && rs.next()) {
@@ -147,12 +180,12 @@ public int setearTipoCategoria(Producto producto ) {
 	int registrosModificados = 0;
 	try {
 		
-		if(producto.getCategoria().equals("Suplementos")) {
+		if(producto.getCategoria().equals("Vestimenta")) {
 			stmt=Conexion.getInstancia().getConnection().prepareStatement("INSERT INTO categoria(descripcion, estado) VALUES(?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, producto.getDescripcion());
 			stmt.setBoolean(2,true);
 		}
-		else if(producto.getCategoria().equals("Vestimenta")) {
+		else if(producto.getCategoria().equals("Suplementos")) {
 			stmt=Conexion.getInstancia().getConnection().prepareStatement("INSERT INTO categoria(descripcion, estado) VALUES(?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, producto.getDescripcion());
 			stmt.setBoolean(2,true);

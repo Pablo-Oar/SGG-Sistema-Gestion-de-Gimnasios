@@ -43,7 +43,7 @@ public class LogicaProducto {
 	{
 		return prodDao.encontrarProductoId(producto);
 	}
-	
+
 	public void cambiarEstadoProducto(Producto producto)
 	{
 		 try {
@@ -51,5 +51,9 @@ public class LogicaProducto {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public int actualizarStock(Producto producto, int stock) {
+		return this.prodDao.actualizarStock(producto, stock);
 	}
 }

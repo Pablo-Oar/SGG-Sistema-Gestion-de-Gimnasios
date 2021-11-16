@@ -86,11 +86,11 @@
 									<div class="valid-feedback">Valido.</div>
 									<div class="invalid-feedback">Por favor completar Categoria.</div>
 								</div>
-								<div class="form-group">
-  									<label for="descripcion" class="font-weight-bolder">Descripcion:</label>
- 									<input class="form-control" name="descripcion" required value="${producto.descripcion}">
+								<div class="form-group" class="mb-3">
+									<label for="descripcion" class="font-weight-bolder">Descripcion</label>
+									<textarea class="form-control" name="descripcion" rows="3" required >${producto.descripcion}</textarea>	
 									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar descripción.</div>
+									<div class="invalid-feedback">Por favor completar descripcion.</div>
 								</div>
 							</div>
 						</div>

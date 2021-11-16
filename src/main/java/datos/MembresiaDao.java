@@ -28,6 +28,7 @@ public class MembresiaDao {
 					mem.setTipoMembresia(rs.getString("tipoMembresia"));
 					mem.setPrecio(rs.getDouble("precio"));
 					mem.setMeses(rs.getInt("meses"));
+					mem.setEstado(rs.getBoolean("estado"));
 					membresias.add(mem);
 				}	
 			}	

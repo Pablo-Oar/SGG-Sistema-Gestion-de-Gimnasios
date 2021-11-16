@@ -27,14 +27,14 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="card">
-					<div class="card-header">
+				<div class="card border border-dark">
+					<div class="card-header border-bottom border-dark">
 						<div class="row">
 							<h4 class="col-sm-4">Listado de Categorias</h4>
   						</div>
   					</div>
   					<div class="card-body">
-					<table class="table table-striped text-center">
+					<table class="table list-group-item-action list-group-item-secondary table-striped text-center">
 						<thead class="thead-dark">
 							<tr>
 								<th>#</th> 
@@ -49,10 +49,10 @@
 									<td>${status.count}</td>
 									<td>${categorias.descripcion}</td>
 									<c:if test="${categorias.estado == true}">
-                                    	<td><span class="badge badge-pill badge-success active"> Activa</span></td> 
+                                    	<td><span class="badge badge-pill badge-success active">Categoria Activa</span></td> 
                                     </c:if>
                                     <c:if test="${categorias.estado == false}">
-                                    	<td><span class="badge badge-pill badge-danger active"> Inactiva</span></td> 
+                                    	<td><span class="badge badge-pill badge-danger active">Categoria Inactiva</span></td> 
                                     </c:if>
 									<td>
 										<c:choose>	

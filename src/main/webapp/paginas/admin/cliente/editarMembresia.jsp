@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <!-- Required meta tags -->
+ 				<!-- Metas -->
  <jsp:include page="/paginas/comunes/metas.jsp"/>
 <title>Editar membresia</title>
 	<!-- Encabezado home -->

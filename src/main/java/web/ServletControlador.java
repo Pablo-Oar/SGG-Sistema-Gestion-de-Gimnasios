@@ -53,7 +53,6 @@ public class ServletControlador extends HttpServlet {
 			case "irMembresia":
                 this.listarMembresia(request, response);
                 break;
-			default: this.accionDefault(request, response);
 			}
 		}else if (request.getParameter("cambiarEstadoCliente") != null) {
             cambiarEstadoCliente(request, response);

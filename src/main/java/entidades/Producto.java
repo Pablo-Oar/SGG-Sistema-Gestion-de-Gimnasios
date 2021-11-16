@@ -12,6 +12,9 @@ public class Producto {
 	private boolean estado;
 	//private Marca marca;
 	
+	public Producto() {
+		this.categoria = new CategoriaProducto();
+	}
 	
 	public int getIdProducto() {
 		return idProducto;
@@ -55,7 +58,7 @@ public class Producto {
 		this.categoria = categoria;
 	}
 	public void setDescripcionCategoria(String categoriaProducto) {
-		categoria.setDescripcion(categoriaProducto);
+		this.categoria.setDescripcion(categoriaProducto);
 	}
 
 	public Proveedor getProveedor() {

@@ -29,8 +29,8 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="card">
-					<div class="card-header">
+				<div class="card border border-dark">
+					<div class="card-header border-bottom border-dark">
 						<div class="row">
 							<h4 class="col-sm-4">Listado de Productos</h4>
 							<form class="form-inline col-sm-8" action="${pageContext.request.contextPath}/ServletProductos?accion=encontrarProductoId" method="post" >
@@ -40,7 +40,7 @@
   						</div>
   					</div>
   					<div class="card-body">
-					<table class="table table-striped text-center">
+					<table class="table list-group-item-action list-group-item-secondary  table-striped text-center">
 						<thead class="thead-dark">
 							<tr>
 								<th>#</th> 
@@ -72,12 +72,12 @@
 										<c:choose>	
 											<c:when test="${productos.estado == true}">
 												<input type="hidden" id="item" value = "${productos.idProducto}">
-												<a id="desactivarProducto" href="${pageContext.request.contextPath}/ServletProducto?cambiarEstadoProducto=desactivar&idProducto=${productos.idProducto}" class="btn btn-danger" data-toggle="tooltip" title="Desactivar" data-original-title="Desactivar">
+												<a id="desactivarProducto" href="${pageContext.request.contextPath}/ServletProductos?cambiarEstadoProducto=desactivar&idProducto=${productos.idProducto}" class="btn btn-danger" data-toggle="tooltip" title="Desactivar" data-original-title="Desactivar">
 												<i class="fas fa-eye-slash"></i></a>
 											</c:when>
 											<c:otherwise>
 												<input type="hidden" id="item" value = "${productos.idProducto}">
-												<a id="activarProducto" href="${pageContext.request.contextPath}/ServletProducto?cambiarEstadoProducto=activar&idProducto=${productos.idProducto}" class="btn btn-success" data-toggle="tooltip" title="Activar" data-original-title="Activar">
+												<a id="activarProducto" href="${pageContext.request.contextPath}/ServletProductos?cambiarEstadoProducto=activar&idProducto=${productos.idProducto}" class="btn btn-success" data-toggle="tooltip" title="Activar" data-original-title="Activar">
 												<i class="fas fa-eye"></i></a>
 											</c:otherwise>
 										</c:choose>

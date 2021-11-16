@@ -10,7 +10,7 @@
 			<!-- Encabezado home -->
 	<jsp:include page="/paginas/admin//home/encabezadoHome.jsp"/>
 </head>
-<body>
+<body class="bg-secondary bg-gradient">
 <br><br>
 	 		<!-- Solo muestro listado de clientes -->
  <jsp:include page="/paginas/admin/home/listadoHome.jsp"/>

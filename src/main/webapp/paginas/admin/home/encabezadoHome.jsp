@@ -4,6 +4,7 @@
 <% Usuario usuario = ((Usuario)session.getAttribute("usuario"));%>
  
 <nav class=" navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+<!-- SI ES ADMINISTRADOR MUESTRO: -->
  <%if (usuario.getRol().getId()== 1){ %>
 	<!-- Logo -->
   	<a class="navbar-brand " href="${pageContext.request.contextPath}/usuarioAdministrador.jsp" data-toggle="tooltip" title="Home"><i class="fas fa-house-user" ></i></a>
@@ -32,8 +33,8 @@
       			</a>
       		</li>
       		<li class="nav-item">
-      			<a  class="nav-link" href="#">
-      				<button type="button" class="btn btn-outline-light font-weight-bolder">Ventas</button>
+      			<a  class="nav-link" href="${pageContext.request.contextPath}/ServletProductos?accion=irVentas">
+      				<button type="button" class="btn btn-outline-light font-weight-bolder">Registrar Ventas</button>
       			</a>
       		</li>
       		<li class="nav-item">
@@ -76,6 +77,7 @@
   		</div>
 	</div>
 	<%} %>
+	<!-- SI ES VENDEDOR MUESTRO: -->
     <%if (usuario.getRol().getId()== 2){ %>
 	<!-- Logo -->
   	<a class="navbar-brand " href="${pageContext.request.contextPath}/usuarioVendedor.jsp" data-toggle="tooltip" title="Home"><i class="fas fa-house-user" ></i></a>
@@ -93,8 +95,8 @@
       			</a>
       		</li>
    			<li class="nav-item">
-   				<a  class="nav-link" href="#">
-     				<button type="button" class="btn btn-outline-light font-weight-bolder">Ventas</button>
+   				<a  class="nav-link" href="${pageContext.request.contextPath}/ServletProductos?accion=irVentas">
+     				<button type="button" class="btn btn-outline-light font-weight-bolder">Registrar Ventas</button>
       			</a>
       		</li>
       	</ul>

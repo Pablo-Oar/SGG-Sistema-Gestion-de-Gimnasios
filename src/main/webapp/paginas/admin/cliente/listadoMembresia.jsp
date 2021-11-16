@@ -27,14 +27,14 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="card">
-					<div class="card-header">
+				<div class="card border border-dark">
+					<div class="card-header border-bottom border-dark">
 						<div class="row">
 							<h4 class="col-sm-4">Listado de Membresias</h4>
   						</div>
   					</div>
   					<div class="card-body">
-					<table class="table table-striped text-center">
+					<table class="table list-group-item-action list-group-item-secondary  table-striped text-center">
 						<thead class="thead-dark">
 							<tr>
 								<th>#</th> 

@@ -246,4 +246,24 @@ package datos;
 			catch (SQLException e) {
 				e.printStackTrace();}}
 	}
+	
+	public int actualizarStock(Producto producto, int stock) {
+		PreparedStatement stmt = null;
+		int registrosModificados = 0;
+		try {
+			stmt=Conexion.getInstancia().getConnection().prepareStatement("UPDATE producto SET stock=? WHERE idProducto = ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+			stmt.setInt(1,stock);
+			stmt.setInt(2,producto.getIdProducto());
+			
+			registrosModificados = stmt.executeUpdate();} 
+		catch (SQLException e) {
+			e.printStackTrace();}
+		finally {
+			try {
+				if(stmt!=null) {stmt.close();}
+					Conexion.getInstancia().releaseConn();} 
+			catch (SQLException e) {
+				e.printStackTrace();}}
+		return registrosModificados;
+	}
 }
