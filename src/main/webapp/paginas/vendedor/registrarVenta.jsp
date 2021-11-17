@@ -46,7 +46,7 @@
 								<input type="text" name="precio" value="${producto.precio }" class="form-control" placeholder="$ 0.00">
 							</div>
 							<div class="col-sm-3" >
-								<input type="number" name="cantidad" value="1" class="form-control" placeholder=" ">
+								<input type="number" min="1" name="cantidad" value="1" class="form-control" placeholder=" ">
 							</div>
 							<div class="col-sm-4" >
 								<input type="text" name="stock" placeholder="Stock" value="${producto.stock}" class="form-control">
@@ -97,12 +97,8 @@
 								<td>${listaProductos.cantidad}</td>
 								<td>${listaProductos.subtotal}</td>
 								<td class="form-group d-flex">
-									<a >
-										<button type="submit" name="accion" value="editarProdCarrito" class="btn btn-primary"><i class="fas fa-edit"></i>
-											Editar
-										</button>
-									</a>
-									<a >
+									<a>	
+										<input type="hidden" name="idProducto" value="${listaProductos.idProducto}" class="form-control">
 										<button type="submit" name="accion" value="eliminarProdCarrito" class="btn btn-danger "><i class="fas fa-trash"></i>
 											Eliminar
 										</button>
@@ -130,7 +126,7 @@
 				 		<a href="#" class=" d-flex ">
 				 			<button class=" btn btn-success fas fa-dollar-sign">&nbsp;Total:</button>
 				 		</a>
-						<input type="text" name="totalAPagar" value="${total}" class="form-control">
+						<input type="text" name="total" value="${total}" class="form-control">
 					</div>
 				</div>
 				</form>

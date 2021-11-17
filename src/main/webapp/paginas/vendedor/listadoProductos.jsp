@@ -99,7 +99,6 @@
 			<!-- Agregar un producto (modal) -->
 <jsp:include page="/paginas/vendedor/agregarProducto.jsp"></jsp:include>
 
-
 					<!-- Pie de pagina -->
 <jsp:include page="/paginas/comunes/piePagina.jsp"/>
 	

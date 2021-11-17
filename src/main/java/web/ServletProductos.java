@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -74,6 +75,8 @@ public class ServletProductos extends HttpServlet
 		}
 	}
 
+
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
@@ -93,7 +96,7 @@ public class ServletProductos extends HttpServlet
 			case "agregarProducto": 	this.agregarProducto(request,response);
 										break;
 			case "cancelarPedido": 		this.cancelarPedido(request,response);
-			break;
+										break;
 		}
 		}else if (request.getParameter("cambiarEstadoProducto") != null) {
             cambiarEstadoProducto(request, response);
@@ -120,7 +123,7 @@ public class ServletProductos extends HttpServlet
 		venta.setId_Usuario(1);//Recuperar idUsuario...
 		venta.setNroSerie(request.getParameter("NroSerie"));
 		venta.setFecha(dtf.format(LocalDateTime.now())); 
-		venta.setMonto(Double.parseDouble(request.getParameter("totalAPagar")));
+		venta.setMonto(Double.parseDouble(request.getParameter("total")));
 		venta.setEstado("1");
 		logicVenta.insertarVenta(venta);
 		
@@ -155,6 +158,7 @@ public class ServletProductos extends HttpServlet
 		request.getRequestDispatcher("/paginas/vendedor/registrarVenta.jsp").forward(request, response);
 	}
 
+	
 	private void accionDefault(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		List<Producto> productos = new LogicaProducto().listarProductos();
@@ -218,9 +222,16 @@ public class ServletProductos extends HttpServlet
 	
 	private void eliminarProdCarrito(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int idProd = Integer.parseInt(request.getParameter("idProducto"));
-		listaProductos.remove(idProd);
+		double total=Double.parseDouble(request.getParameter("total"));
+		for (int i =0; i<listaProductos.size(); i++) {
+			if(listaProductos.get(i).getIdProducto() == idProd) {
+			total= total - listaProductos.get(i).getSubtotal();
+			listaProductos.remove(i);
+			}
+		}
 		HttpSession sesion = request.getSession();
 		sesion.setAttribute("listaProductos", listaProductos);
+		sesion.setAttribute("total", total);
 		request.getRequestDispatcher("/paginas/vendedor/registrarVenta.jsp").forward(request, response);
 	}
 	

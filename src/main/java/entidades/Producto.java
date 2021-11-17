@@ -8,6 +8,7 @@ public class Producto {
 	private double precio;
 	private int stock; 
 	private CategoriaProducto categoria;
+	private String imagen;
 	private Proveedor proveedor;
 	private boolean estado;
 	//private Marca marca;
@@ -59,6 +60,14 @@ public class Producto {
 	}
 	public void setDescripcionCategoria(String categoriaProducto) {
 		this.categoria.setDescripcion(categoriaProducto);
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 	public Proveedor getProveedor() {
