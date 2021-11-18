@@ -18,8 +18,8 @@
   						</div>
   					</div>
   					<div class="card-body">
-					<table class="table table-striped text-center list-group-item-action list-group-item-secondary">
-						<thead class=" thead-dark">
+					<table class="table table-hover list-group-item-dark">
+						<thead class="thead-dark">
 							<tr>
 								<th>#</th> 
 								<th>Nombre</th>
@@ -42,11 +42,12 @@
 									<td>${clientes.dni}</td>
 									<td>${clientes.telefono}</td>
 									<td>${clientes.direccion}</td>
-									<td>
-										<a  class="nav-link" href="${pageContext.request.contextPath}/paginas/admin/cliente/listadoMembresia.jsp">	
-											${clientes.membresia.tipoMembresia}
-										</a>
-									</td>
+									<c:if test="${clientes.estadoMembresia == true}">
+										<td class="text-center"><span class="badge badge-pill badge-success active">${clientes.tipoMembresia}</span></td> 
+									</c:if>
+									<c:if test="${clientes.estadoMembresia == false}">
+										<td class="text-center"><span class="badge badge-pill badge-danger active">Membresia Inactiva</span></td>
+									</c:if>
 									<c:if test="${clientes.estado == true}">
                                     	<td><span class="badge badge-pill badge-success active">Cliente Activo</span></td> 
                                     </c:if>

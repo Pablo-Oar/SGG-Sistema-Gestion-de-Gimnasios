@@ -1,31 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ page import= "entidades.*" %>
 
 <!DOCTYPE html>
 <html>
 <head>
  <!-- Required meta tags -->
  <jsp:include page="/paginas/comunes/metas.jsp"/>
-<title>Sistema de Gestion de Gimnasios</title>
+<title>Producto</title>
+<% Usuario usuario = ((Usuario)session.getAttribute("usuario"));%>
 </head>
 <body class="bg-secondary">
 
-	
+	<!-- Cabecero Control de Clientes -->
+	<jsp:include page="/paginas/admin/home/encabezadoHome.jsp"/>
 	
 	<section id="actions" class= "py-4 mb-4 bg-secondary">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<a href="usuarioVendedor.jsp" class="btn btn-outline-light font-weight-bolder ">
+				<%if (usuario.getRol().getId()== 1){ %>
+					<a href="usuarioAdministrador.jsp" class="btn btn-outline-light font-weight-bolder ">
 						<i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Regresar al inicio
 					</a>
+				<%}%>
+				<%if (usuario.getRol().getId()== 2){ %>
+				<a href="usuarioVendedor.jsp" class="btn btn-outline-light font-weight-bolder ">
+						<i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Regresar al inicio
+					</a>
+				<%}%>
 				</div>
 			</div>
 		</div>
 	</section>
 	
-	<section id="productos">
+	<section id="producto">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -37,48 +46,29 @@
 					<table class="table table-striped">
 						<thead class="thead-dark">
 							<tr>
-								<th>#</th> 
-								<th>Nombre</th>	
+								<th>#</th>
+								<th>Nombre</th>
 								<th>Precio</th>
 								<th>Stock</th>
-								<th>Estado</th>
 								<th>Categoria</th>
 								<th>Descripcion</th>
-								<th>Acciones</th>
+								<th>Estado</th>
 							</tr>
 						</thead>
 						<tbody>
-							  <c:forEach var="productos" items="${productos}" varStatus="status">
+							 <c:forEach var="producto" items="${producto}" varStatus="status">
 								<tr>
-									<td>${status.count}</td>
-									<td>${productos.nombre}</td>
-									<td>${productos.precio}</td>
-									<td>${productos.stock}</td>
-									<c:if test="${productos.estado == true}">
+									<td><c:out value = "${status.count}"/></td>
+									<td><c:out value = "${producto.nombre}"/></td>
+									<td><c:out value = "${producto.precio}"/></td>
+									<td><c:out value = "${producto.stock}"/></td>
+									<td><c:out value = "${producto.categoria.descripcion}"/></td>
+									<c:if test="${producto.estado == true}">
                                     	<td><span class="badge badge-pill badge-success active">Producto Activo</span></td> 
                                     </c:if>
-                                    <c:if test="${productos.estado == false}">
+                                    <c:if test="${producto.estado == false}">
                                     	<td><span class="badge badge-pill badge-danger active">Producto Inactivo</span></td> 
                                     </c:if>
-									<td>${productos.categoria.descripcion}</td>	
-									<td>
-										<c:choose>	
-											<c:when test="${productos.estado == true}">
-												<input type="hidden" id="item" value = "${productos.idProducto}">
-												<a id="desactivarProducto" href="${pageContext.request.contextPath}/ServletProducto?cambiarEstadoProducto=desactivar&idProducto=${productos.idProducto}" class="btn btn-danger" data-toggle="tooltip" title="Desactivar" data-original-title="Desactivar">
-												<i class="fas fa-eye-slash"></i></a>
-											</c:when>
-											<c:otherwise>
-												<input type="hidden" id="item" value = "${productos.idProducto}">
-												<a id="activarProducto" href="${pageContext.request.contextPath}/ServletProducto?cambiarEstadoProducto=activar&idProducto=${productos.idProducto}" class="btn btn-success" data-toggle="tooltip" title="Activar" data-original-title="Activar">
-												<i class="fas fa-eye"></i></a>
-											</c:otherwise>
-										</c:choose>
-										<a href="${pageContext.request.contextPath}/ServletProducto?accion=editarProducto&idProducto=${productos.idProducto}"
-											class="btn btn-primary">
-											<i class="fas fa-edit"></i>Editar
-										</a>
-									</td>		
 								</tr>
 							</c:forEach>
 						</tbody>

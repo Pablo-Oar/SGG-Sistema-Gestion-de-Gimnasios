@@ -40,7 +40,7 @@
   						</div>
   					</div>
   					<div class="card-body">
-					<table class="table list-group-item-action list-group-item-secondary  table-striped text-center">
+					<table class="table table-hover list-group-item-dark">
 						<thead class="thead-dark">
 							<tr>
 								<th>#</th> 
@@ -70,22 +70,22 @@
                                     <c:if test="${clientes.estado == false}">
                                     	<td><span class="badge badge-pill badge-danger active">Cliente Inactivo</span></td> 
                                     </c:if>
-									<td>
+									<td class="d-flex">
 										<c:choose>	
 											<c:when test="${clientes.estado == true}">
 												<input type="hidden" id="item" value = "${clientes.idCliente}">
-												<a id="desactivarCliente" href="${pageContext.request.contextPath}/ServletControlador?cambiarEstadoCliente=desactivar&idCliente=${clientes.idCliente}" class="btn btn-danger" data-toggle="tooltip" title="Desactivar" data-original-title="Desactivar">
-												<i class="fas fa-eye-slash"></i></a>
+												<a id="desactivarCliente" href="${pageContext.request.contextPath}/ServletControlador?cambiarEstadoCliente=desactivar&idCliente=${clientes.idCliente}" class="btn btn-danger ml-auto" data-toggle="tooltip" title="Desactivar" data-original-title="Desactivar">
+												<i class="fas fa-eye-slash font-weight-bolder"></i></a>
 											</c:when>
 											<c:otherwise>
 												<input type="hidden" id="item" value = "${clientes.idCliente}">
-												<a id="activarCliente" href="${pageContext.request.contextPath}/ServletControlador?cambiarEstadoCliente=activar&idCliente=${clientes.idCliente}" class="btn btn-success" data-toggle="tooltip" title="Activar" data-original-title="Activar">
-												<i class="fas fa-eye"></i></a>
+												<a id="activarCliente" href="${pageContext.request.contextPath}/ServletControlador?cambiarEstadoCliente=activar&idCliente=${clientes.idCliente}" class="btn btn-success ml-auto" data-toggle="tooltip" title="Activar" data-original-title="Activar">
+												<i class="fas fa-eye font-weight-bolder"></i><br></a>
 											</c:otherwise>
 										</c:choose>
 										<a href="${pageContext.request.contextPath}/ServletControlador?accion=editarCliente&idCliente=${clientes.idCliente}"
-											class="btn btn-primary">
-											<i class="fas fa-edit"></i>Editar
+											class="btn btn-primary ml-auto">
+											<i class="fas fa-edit "></i><br>
 										</a>
 									</td>		
 								</tr>

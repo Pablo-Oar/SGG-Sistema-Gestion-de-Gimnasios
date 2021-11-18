@@ -34,7 +34,7 @@
   						</div>
   					</div>
   					<div class="card-body">
-					<table class="table list-group-item-action list-group-item-secondary table-striped text-center">
+					<table class="table table-hover list-group-item-dark">
 						<thead class="thead-dark">
 							<tr>
 								<th>#</th> 
@@ -54,22 +54,22 @@
                                     <c:if test="${categorias.estado == false}">
                                     	<td><span class="badge badge-pill badge-danger active">Categoria Inactiva</span></td> 
                                     </c:if>
-									<td>
+									<td >
 										<c:choose>	
 											<c:when test="${categorias.estado == true}">
 												<input type="hidden" id="item" value = "${categorias.idCategoria}">
 												<a id="desactivarCategoria" href="${pageContext.request.contextPath}/ServletProductos?cambiarEstadoCategoria=desactivar&idCategoria=${categorias.idCategoria}" class="btn btn-danger" data-toggle="tooltip" title="Desactivar" data-original-title="Desactivar">
-												<i class="fas fa-eye-slash"></i></a>
+												<i class="fas fa-eye-slash"></i>&nbsp;Desactivar</a>
 											</c:when>
 											<c:otherwise>
 												<input type="hidden" id="item" value = "${categorias.idCategoria}">
 												<a id="activarCategoria" href="${pageContext.request.contextPath}/ServletProductos?cambiarEstadoCategoria=activar&idCategoria=${categorias.idCategoria}" class="btn btn-success" data-toggle="tooltip" title="Activar" data-original-title="Activar">
-												<i class="fas fa-eye"></i></a>
+												<i class="fas fa-eye"></i>&nbsp;Activar</a>
 											</c:otherwise>
 										</c:choose>
 										<a href="${pageContext.request.contextPath}/ServletProductos?accion=editarCategoria&idCategoria=${categorias.idCategoria}"
 											class="btn btn-primary">
-											<i class="fas fa-edit"></i>Editar
+											<i class="fas fa-edit"></i>&nbsp;Editar
 										</a>		
 									</td>		
 								</tr>

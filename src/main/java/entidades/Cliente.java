@@ -15,6 +15,13 @@ public class Cliente extends AbsPersona {
 		public void setTipoMembresia(String tipoMembresia) {
 			membresia.setTipoMembresia(tipoMembresia);
 		}
+		public boolean getEstadoMembresia() {
+			return membresia.isEstado();
+		}
+
+		public void setEstadoMembresia(boolean estadoMembresia) {
+			membresia.setEstado(estadoMembresia);
+		}
 
 		public int getIdMembresia() {
 			return membresia.getIdMembresia();

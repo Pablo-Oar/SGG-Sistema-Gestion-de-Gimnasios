@@ -133,9 +133,10 @@ public class ServletControlador extends HttpServlet {
 	}
 	private void accionDefault(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Cliente> clientes = new LogicaCliente().listarClientes();
+		
 		//Lo muestro por consola para verificar
 		for(Cliente cli : clientes) {
-			System.out.println("usuarios: "+ cli); 
+			System.out.println("Clientes: Tipo Membresia: "+ cli.getTipoMembresia()+", Estado Membresia: "+cli.getEstadoMembresia()); 
 		}
 		HttpSession sesion = request.getSession();
 		sesion.setAttribute("clientes", clientes);
@@ -287,7 +288,7 @@ public class ServletControlador extends HttpServlet {
 			//Lo muestro por consola para verificar
 			for(Membresia mem : membresias) 
 			{
-				System.out.println("Membresias: " + mem); 
+				System.out.println("Membresias: " + mem + "Estado: "+ mem.isEstado()); 
 			}
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("membresias", membresias);
@@ -343,20 +344,11 @@ public class ServletControlador extends HttpServlet {
 		    //Listar a todos los tipos de membresias
 		   	this.listarMembresia(request, response);
 		}
-		
-//		private void eliminarMembresia(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//			int idMembresia = Integer.parseInt(request.getParameter("idMembresia"));
-//			CMembresia membresia = new CMembresia(); 
-//			membresia.setIdMembresia(idMembresia);
-//			int registrosModificados = new CrudMembresia().eliminarMembresia(membresia);
-//			System.out.println("registrosModificados = " + registrosModificados);
-//			this.accionDefault(request, response);
-//		}
 	   
 		//(BAJA LÓGICA)
 		private void cambiarEstadoMembresia(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		   	LogicaMembresia memDao;
-	        Membresia membresia;
+		   	LogicaMembresia memDao=null;
+	        Membresia membresia=null;
 	        try {
 	            memDao = new LogicaMembresia();
 	            membresia = new Membresia();
@@ -377,8 +369,10 @@ public class ServletControlador extends HttpServlet {
 	        } catch (Exception e) {
 	            request.setAttribute("mensaje", e.getMessage());
 	        }
-	       // this.accionDefault(request, response);
-	        this.listarMembresia(request, response);
+	        HttpSession sesion = request.getSession();
+			sesion.setAttribute("membresia", membresia);
+			this.accionDefault(request, response);
+			//request.getRequestDispatcher("/usuarioAdministrador.jsp").forward(request, response);
 	    }
 	
 }

@@ -34,13 +34,13 @@
 						<div class="row">
 							<h4 class="col-sm-4">Listado de Productos</h4>
 							<form class="form-inline col-sm-8" action="${pageContext.request.contextPath}/ServletProductos?accion=encontrarProductoId" method="post" >
-    							<input name="id" class="form-control mr-sm-3" type="text" placeholder="Ingrese id del producto">
+    							<input name="idProducto" class="form-control mr-sm-3" type="text" placeholder="Ingrese id del producto">
     							<button class="btn btn-outline-dark font-weight-bolder" type="submit">Buscar</button>
   							</form>
   						</div>
   					</div>
   					<div class="card-body">
-					<table class="table list-group-item-action list-group-item-secondary  table-striped text-center">
+					<table class="table table-hover list-group-item-dark">
 						<thead class="thead-dark">
 							<tr>
 								<th>#</th> 
@@ -64,26 +64,25 @@
                                     	<td><span class="badge badge-pill badge-success active">Producto Activo</span></td> 
                                     </c:if>
                                     <c:if test="${productos.estado == false}">
-                                    	<td><span class="badge badge-pill badge-danger active">Producto Inactivo</span></td> 
+                                    	<td><span class="badge badge-pill badge-danger active ">Producto Inactivo</span></td> 
                                     </c:if>
 									<td>${productos.categoria.descripcion}</td>	
 									<td>${productos.descripcion}</td>	
-									<td>
+									<td class="d-flex">
 										<c:choose>	
 											<c:when test="${productos.estado == true}">
 												<input type="hidden" id="item" value = "${productos.idProducto}">
-												<a id="desactivarProducto" href="${pageContext.request.contextPath}/ServletProductos?cambiarEstadoProducto=desactivar&idProducto=${productos.idProducto}" class="btn btn-danger" data-toggle="tooltip" title="Desactivar" data-original-title="Desactivar">
-												<i class="fas fa-eye-slash"></i></a>
+												<a id="desactivarProducto" href="${pageContext.request.contextPath}/ServletProductos?cambiarEstadoProducto=desactivar&idProducto=${productos.idProducto}" class="btn btn-danger ml-auto" data-toggle="tooltip" title="Desactivar" data-original-title="Desactivar">
+												<i class="fas fa-eye-slash font-weight-bolder"></i></a>
 											</c:when>
 											<c:otherwise>
 												<input type="hidden" id="item" value = "${productos.idProducto}">
-												<a id="activarProducto" href="${pageContext.request.contextPath}/ServletProductos?cambiarEstadoProducto=activar&idProducto=${productos.idProducto}" class="btn btn-success" data-toggle="tooltip" title="Activar" data-original-title="Activar">
-												<i class="fas fa-eye"></i></a>
+												<a id="activarProducto" href="${pageContext.request.contextPath}/ServletProductos?cambiarEstadoProducto=activar&idProducto=${productos.idProducto}" class="btn btn-success ml-auto" data-toggle="tooltip" title="Activar" data-original-title="Activar">
+												<i class="fas fa-eye font-weight-bolder"></i></a>
 											</c:otherwise>
 										</c:choose>
-										<a href="${pageContext.request.contextPath}/ServletProductos?accion=editarProducto&idProducto=${productos.idProducto}"
-											class="btn btn-primary">
-											<i class="fas fa-edit"></i>Editar
+										<a href="${pageContext.request.contextPath}/ServletProductos?accion=editarProducto&idProducto=${productos.idProducto}" data-toggle="tooltip" title="Editar" class="btn btn-primary ml-auto">
+											<i class="fas fa-edit"></i>
 										</a>
 									</td>		
 								</tr>

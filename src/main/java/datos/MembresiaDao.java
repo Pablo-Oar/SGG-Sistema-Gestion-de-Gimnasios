@@ -99,6 +99,7 @@ public void setMembresia(Cliente cliente) {
 				mem.setTipoMembresia(rs.getString("tipoMembresia"));
 				mem.setPrecio(rs.getDouble("precio"));
 				mem.setMeses(rs.getInt("meses"));
+				mem.setEstado(rs.getBoolean("estado"));
 				cliente.setMembresia(mem);}	}	} 
 	catch (SQLException e) {
 		System.out.println("Ocurrio un error al setear la membresia...");
@@ -345,7 +346,6 @@ public Membresia encontrarMembresiaById(Membresia membresia){
 }
 
 public void cambiarEstadoMembresia(Membresia membresia) throws Exception {
-	//String SQL_ESTADO_MEMBRESIA = "UPDATE membresia SET estado = " + (membresia.isEstado() == true ? "1" : "0")+ " WHERE idMembresia = ?";
 	String SQL_ESTADO_MEMBRESIA="UPDATE membresia SET estado = ? WHERE idMembresia = ?;";
 	PreparedStatement stmt = null;
 	try {
@@ -363,6 +363,5 @@ public void cambiarEstadoMembresia(Membresia membresia) throws Exception {
 		catch (SQLException e) {
 			e.printStackTrace();}}
 }
-	
 	
 }//Fin Clase

@@ -231,11 +231,12 @@ package datos;
 	
 	public void cambiarEstadoProducto(Producto producto) throws Exception 
 	{
-		String sql = "UPDATE producto SET estado = " + (producto.isEstado() == true ? "1" : "0")+ " WHERE idProducto = ?";
+		String sql = "UPDATE producto SET estado = ? WHERE idProducto = ?";
 		PreparedStatement stmt = null;
 		try {
 			stmt=Conexion.getInstancia().getConnection().prepareStatement(sql);
-			stmt.setInt(1,producto.getIdProducto());
+			stmt.setBoolean(1, producto.isEstado());
+			stmt.setInt(2,producto.getIdProducto());
 			stmt.executeUpdate();} 
 		catch (Exception e) {
 			e.printStackTrace();}

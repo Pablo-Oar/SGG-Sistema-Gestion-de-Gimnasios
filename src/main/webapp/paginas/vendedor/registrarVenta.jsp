@@ -49,6 +49,7 @@
 								<input type="number" min="1" name="cantidad" value="1" class="form-control" placeholder=" ">
 							</div>
 							<div class="col-sm-4" >
+								<input type="hidden" name="estado" value="${producto.estado}" class="form-control">
 								<input type="text" name="stock" placeholder="Stock" value="${producto.stock}" class="form-control">
 							</div>
 						</div>
@@ -75,7 +76,7 @@
   				</div>
 				<div class="card-body border-bottom border-dark">
 					<br>
-					<table class="table table-hover list-group-item-action list-group-item-secondary">
+					<table class="table table-hover list-group-item-dark">
 						<thead class="thead-dark">
 							<tr>
 								<th>Nro</th>

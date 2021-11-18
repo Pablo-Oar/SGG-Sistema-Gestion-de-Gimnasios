@@ -65,6 +65,9 @@ public class ServletProductos extends HttpServlet
 				case "CancelarPedido": 		
 					this.cancelarPedido(request,response);
 					break;
+				case "encontrarPoductoId": 	
+					this.encontrarProdId(request, response); 
+					break;					
 				default: this.accionDefault(request, response);
 			}
 		}else if (request.getParameter("cambiarEstadoProducto") != null) {
@@ -181,11 +184,12 @@ public class ServletProductos extends HttpServlet
 		producto.setNombre(request.getParameter("nombreProducto"));
 		producto.setPrecio(Double.parseDouble(request.getParameter("precio")));
 		producto.setStock(Integer.parseInt(request.getParameter("stock")));
+		producto.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
 		int cantidad = Integer.parseInt(request.getParameter("cantidad"));
 		double subtotal = (producto.getPrecio()*cantidad);
 		
-		//Ahora los seteo a la venta si el stock es mayor a cantidad solicitada
-		if(producto.getStock() >= cantidad) {
+		//Ahora los seteo a la venta si el stock es mayor a cantidad solicitada y si el producto esta activo.
+		if((producto.getStock() >= cantidad)&&(producto.isEstado()== true)) {
 			
 		
 		Venta venta = new Venta();
@@ -203,7 +207,8 @@ public class ServletProductos extends HttpServlet
 		sesion.setAttribute("total",total);
 		sesion.setAttribute("listaProductos", listaProductos);}
 		else {
-			System.out.print("No hay stock para la cantidad solicitada");
+			System.out.println("No hay stock para la cantidad solicitada");
+			System.out.println("El producto que usted quiere agregar al carrito se encuentra inactivo");
 		}
 		request.getRequestDispatcher("/paginas/vendedor/registrarVenta.jsp").forward(request, response);
 	}
@@ -327,8 +332,8 @@ public class ServletProductos extends HttpServlet
 	
 	//(BAJA LÓGICA)
 	private void cambiarEstadoProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	   	LogicaProducto logicProducto;
-        Producto producto;
+	   	LogicaProducto logicProducto=null;
+        Producto producto = null;
         try {
         	logicProducto = new LogicaProducto();
             producto = new Producto();
@@ -349,6 +354,8 @@ public class ServletProductos extends HttpServlet
         } catch (Exception e) {
             request.setAttribute("mensaje", e.getMessage());
         }
+        HttpSession sesion = request.getSession();
+		sesion.setAttribute("producto", producto);
         this.accionDefault(request, response);
 	}
 	

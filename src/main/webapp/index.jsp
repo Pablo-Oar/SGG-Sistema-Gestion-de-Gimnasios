@@ -17,8 +17,8 @@
 				<div class="container">
 				<div class="row">
 				<div class="col-md-12">
-					<h2>
-						<i class="fas fa-user-lock"></i> &nbsp; Login - Sistema Gestion de Gimnasios
+					<h2 class="text-center">
+						<i class="fas fa-cog fa-spin"></i>&nbsp;Login - Sistema Gestion de Gimnasios
 					</h2>
 				</div>
 				</div>
@@ -29,11 +29,12 @@
 					action="${pageContext.request.contextPath}/ServletControlador?accion=login"
 					method="post">
 					<div class="modal-body">
-						<div class="form-group ">
-							<div data-validate="Usuario requerido">
-								<label for="email">Email</label>
+						<div class="form-group">
+							<div class="validate-input" data-validate="Usuario requerido">
 								<div class="row">
-									<input type="email" class="form-control" name="email" required
+									<a href="#" class="d-flex">
+									<i class="col-sm-12 fas fa-user-alt btn btn-success"></i></a>
+									<input type="email" class="col-sm-11 form-control" name="email" required
 										placeholder="ejemplo@gmail.com"></input>
 									<div class="valid-feedback">Valido.</div>
 									<div class="invalid-feedback">Por favor completar email.</div>
@@ -42,18 +43,18 @@
 						</div>
 						<div class="form-group">
 							<div class="validate-input" data-validate="Contraseña Requerida">
-								<label for="email">Contraseña</label>
 								<div class="row">
-									<input type="password" class="form-control" name="password"
+								<a href="#" class="d-flex">
+									<i class="col-sm-12 fas fa-user-lock btn btn-success"></i></a>
+									<input type="password" class="col-sm-11 form-control" name="password"
 										required placeholder="Ingrese su contraseña"></input>
 									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar
-										contraseña.</div>
+									<div class="invalid-feedback">Por favor completar contraseña.</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="modal-footer ">
+					<div class="modal-footer">
 						<button class="btn btn-success btn-block" type="submit">Login</button>
 					</div>
 				</form>
