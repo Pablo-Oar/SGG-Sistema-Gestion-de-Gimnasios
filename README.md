@@ -25,10 +25,11 @@
 |                      | 2. Al agregar un producto al carrito verificar que el estado del mismo esté activo (sea disponible).|
 |                      | 3. Al asignarle una Clase a un profesor verificar que el día y el horario estén disponibles.|
 |                      |                                        |
+| **Listado Simple**   | 1. Listado de Membresia.               |
+|                      | 2. Listado de Categoria.               |
+|                      |                                        |
 | **Listado Complejo** | 1. Listado de Clientes.  (Apellido)    |
-|                      | 2. Listado de Membresia. (Tipo)        |
 |                      | 3. Listado de Producto.  (Id)          |
-|                      | 4. Listado de Categoria. (Tipo)        |
 |                      | 5. Listado de Clase.     (Nombre)      |
 |                      |                                        |
 | **CU Complejo**      |                                        |
