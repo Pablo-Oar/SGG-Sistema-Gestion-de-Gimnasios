@@ -47,9 +47,9 @@ public class ServletControlador extends HttpServlet {
 			case "editarMembresia":
 				this.editarMembresia(request,response);
 				break;
-//			case "eliminarMembresia":
-//				this.eliminarMembresia(request,response);
-//				break;
+			case "eliminarMembresia":
+				this.eliminarMembresia(request,response);
+				break;
 			case "irMembresia":
                 this.listarMembresia(request, response);
                 break;
@@ -63,6 +63,8 @@ public class ServletControlador extends HttpServlet {
 			this.accionDefault(request, response); //Si la accion es nula muestro los mismos clientes.
 		}
 	}
+
+
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -344,7 +346,7 @@ public class ServletControlador extends HttpServlet {
 		    //Listar a todos los tipos de membresias
 		   	this.listarMembresia(request, response);
 		}
-	   
+	    
 		//(BAJA LÓGICA)
 		private void cambiarEstadoMembresia(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		   	LogicaMembresia memDao=null;
@@ -372,7 +374,24 @@ public class ServletControlador extends HttpServlet {
 	        HttpSession sesion = request.getSession();
 			sesion.setAttribute("membresia", membresia);
 			this.accionDefault(request, response);
-			//request.getRequestDispatcher("/usuarioAdministrador.jsp").forward(request, response);
 	    }
+		
+		private void eliminarMembresia(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+	        
+			//recupero los valores del formulario de editarMembresia
+			int idMembresia = Integer.parseInt(request.getParameter("idMembresia"));
+	     
+			//Creo el objeto de membresia (entidades)
+			Membresia membresia = new Membresia(); 
+			membresia.setIdMembresia(idMembresia);
+
+			//Elimino el  objeto en la base de datos
+			int registrosModificados = new LogicaMembresia().eliminarMembresia(membresia);
+			System.out.println("registrosModificados = " + registrosModificados);
+
+			//Ahora redirijo a la accion por default asi me lista a todos los clientes
+			this.accionDefault(request, response);
+		}
 	
 }

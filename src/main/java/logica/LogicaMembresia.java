@@ -48,9 +48,9 @@ public class LogicaMembresia {
 	}
 	
 	
-//	public int eliminarMembresia(CMembresia membresiaAEliminar) {
-//		return memDao.eliminarMembresia(membresiaAEliminar);
-//	}
+	public int eliminarMembresia(Membresia membresiaAEliminar) {
+		return memDao.eliminarMembresia(membresiaAEliminar);
+	}
 	
 	public void cambiarEstadoMembresia(Membresia membresiaCambiarEstado) {
 		 try {

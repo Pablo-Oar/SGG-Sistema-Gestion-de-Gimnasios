@@ -2,6 +2,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page import="entidades.*" %>
 <%@page import="java.util.*"%>
+
 <!DOCTYPE html>
 <html>
 <head>

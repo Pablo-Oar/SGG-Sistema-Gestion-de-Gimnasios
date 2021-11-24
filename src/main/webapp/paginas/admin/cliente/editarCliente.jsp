@@ -92,7 +92,6 @@
 								<div class="form-group ">
 									<label for="membresia" class="font-weight-bolder ">Tipo de Membresia:</label>
 									<select class="form-control" class="form-select" name="membresia" id="membresia" required>
-  										
   										<option  value="Mensual" >Mensual</option>
  										<option value="Bimestral" >Bimestral</option>
 									</select>

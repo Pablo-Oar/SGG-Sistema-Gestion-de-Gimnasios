@@ -1,4 +1,4 @@
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <div class="modal fade" id="agregarClienteModal">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -48,13 +48,12 @@
 						<div class="invalid-feedback">Por favor completar domicilio.</div>
 					</div>
 					<div class="form-group ">
-						<label for="membresia" class="font-weight-bolder ">Tipo de Membresia:</label>
-						<select class="form-control" class="form-select" name="membresia" id="membresia">
-  							<option value="Mensual">MENSUAL</option>
- 							<option value="Bimestral">BIMESTRAL</option>
+						<label for="membresia" class="font-weight-bolder">Tipo Membresia:</label>
+						<select class="form-control" class="form-select" name="membresia" id="membresia" >
+  							<c:forEach var="membresias" items="${membresias}">
+  								<option value="${membresias.tipoMembresia}">${membresias.tipoMembresia}</option>
+  							</c:forEach>
 						</select>
-						<div class="valid-feedback">Valido.</div>
-						<div class="invalid-feedback">Por favor completar tipo membresia.</div>
 					</div>
 					<div class="form-group">
 						<label for="estado" class="font-weight-bolder ">Estado:

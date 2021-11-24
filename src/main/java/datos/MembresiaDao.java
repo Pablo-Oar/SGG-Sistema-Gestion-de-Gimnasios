@@ -8,7 +8,7 @@ public class MembresiaDao {
 
 	private static final String SQL_SELECT = "SELECT * FROM membresia";
 	private static final String SQL_UPDATE = "UPDATE membresia SET tipoMembresia=?, precio=?, meses=?, estado=?  WHERE idMembresia = ? ";
-	private static final String SQL_DELETE = "DELETE FROM membresia WHERE idCliente = ?";
+	private static final String SQL_DELETE = "DELETE FROM membresia WHERE idMembresia = ?";
 	
 	public LinkedList<Membresia> listarMembresias(){
 		Membresia mem = null;
@@ -298,12 +298,12 @@ public int setearTipoMembresia(Cliente cliente ) {
 	return registrosModificados;
 }
 
-public int eliminarMembresia(Cliente cliente){
+public int eliminarMembresia(Membresia membresia){
 	PreparedStatement stmt = null;
 	int registrosModificados = 0;
 	try {
 		stmt=Conexion.getInstancia().getConnection().prepareStatement(SQL_DELETE);
-		stmt.setInt(1,cliente.getIdCliente());
+		stmt.setInt(1,membresia.getIdMembresia());
 		registrosModificados = stmt.executeUpdate();} 
 	catch (SQLException e) {
 		e.printStackTrace();

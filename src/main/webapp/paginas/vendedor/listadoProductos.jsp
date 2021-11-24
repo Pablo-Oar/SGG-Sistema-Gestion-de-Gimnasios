@@ -71,7 +71,7 @@
 									<td class="d-flex">
 										<c:choose>	
 											<c:when test="${productos.estado == true}">
-												<input type="hidden" id="item" value = "${productos.idProducto}">
+												<input type="hidden" id="item" value ="${productos.idProducto}">
 												<a id="desactivarProducto" href="${pageContext.request.contextPath}/ServletProductos?cambiarEstadoProducto=desactivar&idProducto=${productos.idProducto}" class="btn btn-danger ml-auto" data-toggle="tooltip" title="Desactivar" data-original-title="Desactivar">
 												<i class="fas fa-eye-slash font-weight-bolder"></i></a>
 											</c:when>
