@@ -52,11 +52,11 @@
 							<div class="card-body">
 								<div class="form-group">
 									<label for="tipoMembresia" class="font-weight-bolder">Tipo Membresia</label>
-									<input type="text" class="form-control" name="tipoMembresia" value="${membresia.tipoMembresia }" required>
+									<input type="text" class="form-control" name="tipoMembresia" value="${membresia.tipoMembresia}" required>
 								</div>
 								<div class="form-group">
 									<label for="precio" class="font-weight-bolder">Precio</label>
-									<input type="text" class="form-control" name="precio" required value="${ membresia.precio}">
+									<input type="text" class="form-control" name="precio" required value="${membresia.precio}">
 								</div>
 								<div class="form-group">
 									<label for="meses" class="font-weight-bolder">Meses</label>

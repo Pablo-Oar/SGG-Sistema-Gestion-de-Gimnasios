@@ -237,50 +237,6 @@ public Cliente encontrarClienteId(Cliente cliente){
 	return cli;
 }
 		
-
-//Probar utilizar el like acá///////////////////////////////////////////////////
-//					public List<Cliente> encontrarClienteNombre(Cliente cliente)
-//					{
-//						PreparedStatement stmt = null;
-//						ResultSet rs = null;
-//						List<Cliente> clientes = new LinkedList<>();
-//						try {
-//							stmt=CConexion.getInstancia().getConnection().prepareStatement("SELECT * FROM cliente WHERE nombre=?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-//							stmt.setString(1,cliente.getDni());
-//							rs = stmt.executeQuery();
-		//
-//							if(rs!=null) {
-//								while(rs.next()) {
-//									cliente = new Cliente();
-//									cliente.setIdCliente(rs.getInt("idCliente"));
-//									cliente.setNombre(rs.getString("nombre"));
-//									cliente.setApellido(rs.getString("apellido"));
-//									cliente.setDni(rs.getString("dni"));
-//									cliente.setEmail( rs.getString("email"));
-//									cliente.setTelefono(rs.getString("telefono"));
-//									cliente.setDireccion( rs.getString("direccion"));
-//									cliente.setActivo( rs.getBoolean("activo"));
-		//
-//									clientes.add(cliente);		
-//								}
-//							}
-//							
-//							} catch (SQLException e) {
-//								e.printStackTrace();
-//							}
-//							finally 
-//							{
-//								try 
-//								{
-//									if(rs!=null) {rs.close();}
-//									if(stmt!=null) {stmt.close();}
-//									CConexion.getInstancia().releaseConn();
-//								} catch (SQLException e) {
-//									System.out.println("Ocurrio un error al encontrar el cliente por su apellido...");
-//									e.printStackTrace(System.out);}
-//							}
-//						return clientes;
-//					}
 			
 public void cambiarEstadoCliente(Cliente cliente) throws Exception {
 	String sql = "UPDATE cliente SET estado = ? WHERE idCliente = ?";

@@ -331,7 +331,8 @@ public Membresia encontrarMembresiaById(Membresia membresia){
 			mem.setTipoMembresia(rs.getString("tipoMembresia"));
 			mem.setPrecio(rs.getDouble("precio"));
 			mem.setMeses( rs.getInt("meses"));
-			mem.setEstado( rs.getBoolean("estado"));}}
+			mem.setEstado( rs.getBoolean("estado"));}
+			System.out.println("Se encontro::"+mem);}
 	catch (SQLException e) {
 		e.printStackTrace();}
 	finally {
@@ -342,7 +343,7 @@ public Membresia encontrarMembresiaById(Membresia membresia){
 		catch (SQLException e) {
 			System.out.println("Ocurrio un error al encontrar la membresia por su id...");
 			e.printStackTrace(System.out);}}
-	return membresia;
+	return mem;
 }
 
 public void cambiarEstadoMembresia(Membresia membresia) throws Exception {

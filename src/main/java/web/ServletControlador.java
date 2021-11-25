@@ -184,7 +184,7 @@ public class ServletControlador extends HttpServlet {
 		   	this.accionDefault(request, response);
 	}
 	
-
+	
 	private void editarCli(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Cliente cliente = new Cliente();
 		cliente.setIdCliente(Integer.parseInt(request.getParameter("idCliente")));
@@ -300,9 +300,8 @@ public class ServletControlador extends HttpServlet {
 		
 		private void editarMembresia(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			Membresia membresia = new Membresia();
-			LogicaMembresia logicMem = new LogicaMembresia();
 			membresia.setIdMembresia(Integer.parseInt(request.getParameter("idMembresia")));
-			membresia =  logicMem.encontrarMembresiaId(membresia);
+			membresia = new LogicaMembresia().encontrarMembresiaId(membresia);
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("membresia", membresia);
 			request.getRequestDispatcher("/paginas/admin/cliente/editarMembresia.jsp").forward(request, response);

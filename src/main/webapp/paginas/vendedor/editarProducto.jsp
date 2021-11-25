@@ -23,16 +23,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-				<%if (usuario.getRol().getId()== 1){ %>
-					<a href="usuarioAdministrador.jsp" class="btn btn-outline-light font-weight-bolder ">
+					<a href="/TP-JAVA-SGG/paginas/vendedor/listadoProductos.jsp" class="btn btn-outline-light font-weight-bolder ">
 						<i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Regresar al inicio
 					</a>
-				<%}%>
-				<%if (usuario.getRol().getId()== 2){ %>
-					<a href="usuarioVendedor.jsp" class="btn btn-outline-light font-weight-bolder ">
-						<i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Regresar al inicio
-					</a>
-				<%}%>
 				</div>
 				<div class="col-md-3">
 					<button type="submit" class="btn btn-success btn-block font-weight-bolder">

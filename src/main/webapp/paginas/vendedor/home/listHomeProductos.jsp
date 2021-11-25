@@ -13,8 +13,8 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="card">
-					<div class="card-header">
+				<div class="card border border-dark">
+					<div class="card-header border-bottom border-dark">
 						<div class="row">
 							<h4 class="col-sm-4">Listado de Productos</h4>
 							<form class="form-inline col-sm-8" action="${pageContext.request.contextPath}/ServletProductos?accion=encontrarProductoId" method="post" >
@@ -24,7 +24,7 @@
   						</div>
   					</div>
   					<div class="card-body">
-					<table class="table table-striped text-center">
+					<table class="table table-hover list-group-item-dark">
 						<thead class="thead-dark">
 							<tr>
 								<th>#</th> 

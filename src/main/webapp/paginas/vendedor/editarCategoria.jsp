@@ -22,16 +22,9 @@
 		<section id="actions" class= "py-4 mb-4 bg-secondary">
 		<div class="container">
 			<div class="row">
-				<%if (usuario.getRol().getId()== 1){ %>
-					<a href="usuarioAdministrador.jsp" class="btn btn-outline-light font-weight-bolder ">
-						<i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Regresar al inicio
-					</a>
-				<%}%>
-				<%if (usuario.getRol().getId()== 2){ %>
-					<a href="usuarioVendedor.jsp" class="btn btn-outline-light font-weight-bolder ">
-						<i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Regresar al inicio
-					</a>
-				<%}%>
+				<a href="/TP-JAVA-SGG/paginas/vendedor/listadoCategoria.jsp" class="btn btn-outline-light font-weight-bolder ">
+					<i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Regresar al inicio
+				</a>
 				<div class="col-md-3">
 					<button type="submit" class="btn btn-success btn-block font-weight-bolder">
 						<i class="fas fa-check"></i>&nbsp;&nbsp;Guardar Categoria
@@ -58,7 +51,7 @@
 							<div class="card-body">
 								<div class="form-group">
 									<label for="descripcion" class="font-weight-bolder">Descripcion Categoria</label>
-									<input type="text" class="form-control" name="descripcion" value="<%categoria.getDescripcion(); %>" required>
+									<input type="text" class="form-control" name="descripcion" value="${categoria.descripcion}" required>
 								</div>
 								<div class="form-group">
 									<label for="estado" class="font-weight-bolder">Estado

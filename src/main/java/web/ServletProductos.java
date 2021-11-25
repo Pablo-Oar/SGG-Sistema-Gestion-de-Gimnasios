@@ -92,7 +92,7 @@ public class ServletProductos extends HttpServlet
 										break;
 			case "modificarProducto": 	this.actualizarProd(request, response);
 										break;
-			case "encontrarPoductoId": 	this.encontrarProdId(request, response); 
+			case "encontrarProductoId": 	this.encontrarProdId(request, response); 
 										break;					
 			case "BuscarProducto": 		this.buscarProducto(request,response);
 										break;

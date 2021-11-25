@@ -214,7 +214,8 @@ package datos;
 				prod.setDescripcion(rs.getString("descripcion"));
 				prod.setEstado( rs.getBoolean("estado"));
 				catDao.setCategoriaProducto(prod);
-				}	
+				}
+			System.out.println("Producto::"+ prod);
 			}	 
 		catch (SQLException e) {
 			e.printStackTrace();}
