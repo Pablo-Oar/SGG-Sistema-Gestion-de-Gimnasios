@@ -28,7 +28,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-11  mx-auto">
 				<div class="card border border-dark">
 					<div class="card-header border-bottom border-dark">
 						<div class="row">
@@ -57,7 +57,7 @@
 							  <c:forEach var="productos" items="${productos}" varStatus="status">
 								<tr>
 									<td>${status.count}</td>
-									<td>${productos.nombre}</td>
+									<td class="text-center">${productos.nombre}</td>
 									<td>${productos.precio}</td>
 									<td>${productos.stock}</td>
 									<c:if test="${productos.estado == true}">
@@ -66,7 +66,7 @@
                                     <c:if test="${productos.estado == false}">
                                     	<td><span class="badge badge-pill badge-danger active ">Producto Inactivo</span></td> 
                                     </c:if>
-									<td>${productos.categoria.descripcion}</td>	
+									<td class="text-center">${productos.categoria.descripcion}</td>	
 									<td>${productos.descripcion}</td>	
 									<td class="d-flex">
 										<c:choose>	

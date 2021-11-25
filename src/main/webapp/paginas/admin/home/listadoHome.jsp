@@ -4,11 +4,10 @@
 <%@page import="java.util.*"%>
 
 <section id="clientes" >
-	<div class="container ">
-		<div class="row" >
-			<div class="col-sm-12">
+		<div class="row text-center" >
+			<div class="col-sm-11  mx-auto">
 				<div class="card border border-dark">
-					<div class="card-header border-bottom border-dark">
+					<div class="card-header col-sm-12 border-bottom border-dark">
 						<div class="row ">
 							<h4 class="col-sm-8">Listado de Clientes</h4>
 							<form class="col-sm-4 form-inline " action="${pageContext.request.contextPath}/ServletControlador?accion=encontrarClienteApellido" method="post" >
@@ -46,7 +45,7 @@
 										<td class="text-center"><span class="badge badge-pill badge-success active">${clientes.tipoMembresia}</span></td> 
 									</c:if>
 									<c:if test="${clientes.estadoMembresia == false}">
-										<td class="text-center"><span class="badge badge-pill badge-danger active">Membresia Inactiva</span></td>
+										<td class="text-center"><span class="badge badge-pill badge-danger active">Membresia ${clientes.tipoMembresia} Inactiva</span></td>
 									</c:if>
 									<c:if test="${clientes.estado == true}">
                                     	<td><span class="badge badge-pill badge-success active">Cliente Activo</span></td> 
@@ -60,7 +59,7 @@
 					</table>
 					</div>
 				</div>
-			</div>
+			
 		</div>
 	</div>
 </section>

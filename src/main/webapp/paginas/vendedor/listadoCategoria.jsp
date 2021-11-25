@@ -26,7 +26,7 @@
 	
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-11  mx-auto">
 				<div class="card border border-dark">
 					<div class="card-header border-bottom border-dark">
 						<div class="row">
@@ -54,7 +54,7 @@
                                     <c:if test="${categorias.estado == false}">
                                     	<td><span class="badge badge-pill badge-danger active">Categoria Inactiva</span></td> 
                                     </c:if>
-									<td >
+									<td>
 										<c:choose>	
 											<c:when test="${categorias.estado == true}">
 												<input type="hidden" id="item" value = "${categorias.idCategoria}">

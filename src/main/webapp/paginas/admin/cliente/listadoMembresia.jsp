@@ -26,7 +26,7 @@
 	
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-11  mx-auto">
 				<div class="card border border-dark">
 					<div class="card-header border-bottom border-dark">
 						<div class="row">

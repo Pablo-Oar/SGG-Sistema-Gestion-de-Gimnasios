@@ -67,11 +67,13 @@ public class ServletProductos extends HttpServlet
 					break;
 				case "encontrarPoductoId": 	
 					this.encontrarProdId(request, response); 
-					break;					
+					break;		
 				default: this.accionDefault(request, response);
 			}
 		}else if (request.getParameter("cambiarEstadoProducto") != null) {
             cambiarEstadoProducto(request, response);
+        }else if (request.getParameter("cambiarEstadoCategoria") != null) {
+        	cambiarEstadoCategoria(request, response);
         }
 		else {
 			this.accionDefault(request, response); //Si la accion es nula muestro los mismos productos.
@@ -103,6 +105,8 @@ public class ServletProductos extends HttpServlet
 		}
 		}else if (request.getParameter("cambiarEstadoProducto") != null) {
             cambiarEstadoProducto(request, response);
+        }else if (request.getParameter("cambiarEstadoCategoria") != null) {
+        	cambiarEstadoCategoria(request, response);
         }else {
 			this.accionDefault(request, response); //Si la accion es nula muestro los mismos productos.
 		}
@@ -419,5 +423,33 @@ public class ServletProductos extends HttpServlet
 	   	this.accionDefault(request, response);
 		
 	}
+	//(BAJA LÓGICA)
+	private void cambiarEstadoCategoria(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	   	LogicaCategoria logicCategoria=null;
+        CategoriaProducto categoria = null;
+        try {
+        	logicCategoria = new LogicaCategoria();
+            categoria = new CategoriaProducto();
 
+            if (request.getParameter("cambiarEstadoCategoria").equals("activar")) {
+                categoria.setEstado(true);
+            } else {
+                categoria.setEstado(false);
+            }
+
+            if (request.getParameter("idCategoria") != null) {
+                categoria.setIdCategoria(Integer.parseInt(request.getParameter("idCategoria")));
+                logicCategoria.cambiarEstadoCategoria(categoria);
+            } else {
+                request.setAttribute("mensaje", "No se obtuvo el id de la categoria");
+            }
+
+        } catch (Exception e) {
+            request.setAttribute("mensaje", e.getMessage());
+        }
+        HttpSession sesion = request.getSession();
+		sesion.setAttribute("categoria", categoria);
+        request.getRequestDispatcher("/paginas/vendedor/listadoCategoria.jsp").forward(request, response);
+	}
+	
 }

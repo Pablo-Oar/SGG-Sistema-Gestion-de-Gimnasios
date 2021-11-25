@@ -317,7 +317,9 @@ public void cambiarEstadoCategoria(CategoriaProducto categoria) throws Exception
 		stmt=Conexion.getInstancia().getConnection().prepareStatement(SQL_ESTADO_CATEGORIA);
 		stmt.setBoolean(1,categoria.isEstado());
 		stmt.setInt(2,categoria.getIdCategoria());
-		stmt.executeUpdate();} 
+		stmt.executeUpdate();
+		System.out.println("Cambio de estado de la categoria exitoso...");
+		} 
 	catch (Exception e) {
 		System.out.println("Error al cambiar estado de la categoria...");
 		e.printStackTrace();}
