@@ -50,6 +50,11 @@ public abstract class AbsPersona {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
+	@Override
+	public String toString() {
+		return "[nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", email=" + email
+				+ ", telefono=" + telefono + ", direccion=" + direccion + ", estado=" + estado + "]";
+	}
 	
 	
 }

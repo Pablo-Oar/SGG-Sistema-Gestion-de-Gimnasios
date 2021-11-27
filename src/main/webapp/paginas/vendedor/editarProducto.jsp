@@ -69,16 +69,15 @@
 									<div class="valid-feedback">Valido.</div>
 									<div class="invalid-feedback">Por favor completar Strock.</div>
 								</div>
-								<div class="form-group">
-									<label for="estado" class="font-weight-bolder">Estado
-									<input type="checkbox" class="form-control " checked id="estado"></input></label>
+								<div class="form-group ">
+									<label for="categoria" class="font-weight-bolder">Tipo Categoria:</label>
+									<select class="form-control" class="form-select" name="categoria" id="categoria" >
+  									<c:forEach var="categorias" items="${categorias}">
+  										<option value="${categorias.descripcion}">${categorias.descripcion}</option>
+  									</c:forEach>
+									</select>
 								</div>
-								<div class="form-group">
-									<label for="categoria" class="font-weight-bolder">Categoria</label>
-									<input type="text" class="form-control" name="categoria" required value="${producto.categoria.descripcion}">
-									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar Categoria.</div>
-								</div>
+								
 								<div class="form-group" class="mb-3">
 									<label for="descripcion" class="font-weight-bolder">Descripcion</label>
 									<textarea class="form-control" name="descripcion" rows="3" required >${producto.descripcion}</textarea>	

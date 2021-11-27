@@ -11,7 +11,7 @@ import entidades.*;
 public class ClienteDao {
 	private static final String SQL_SELECT = "SELECT *  FROM cliente";
 	private static final String SQL_INSERT = "INSERT INTO cliente(nombre, apellido, email, dni, telefono, direccion, estado) VALUES(?,?,?,?,?,?,?) ";
-	private static final String SQL_UPDATE = "UPDATE cliente SET nombre=?, apellido=?, email=?, dni=?, telefono=?, direccion=?, estado=?  WHERE idCliente = ? ";
+	private static final String SQL_UPDATE = "UPDATE cliente SET nombre=?, apellido=?, email=?, dni=?, telefono=?, direccion=? WHERE idCliente = ? ";
 	private static final String SQL_DELETE = "DELETE FROM cliente WHERE idCliente = ?";
 
 			
@@ -96,8 +96,7 @@ public int modificarCliente(Cliente cliente){
 		stmt.setString(4,cliente.getDni());
 		stmt.setString(5,cliente.getTelefono());
 		stmt.setString(6,cliente.getDireccion());
-		stmt.setBoolean(7,cliente.isEstado());
-		stmt.setInt(8,cliente.getIdCliente());
+		stmt.setInt(7,cliente.getIdCliente());
 					
 		registrosModificados = stmt.executeUpdate();
 		} 

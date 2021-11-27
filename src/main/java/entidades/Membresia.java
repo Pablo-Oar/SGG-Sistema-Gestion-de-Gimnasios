@@ -42,7 +42,7 @@ public class Membresia {
 	
 	@Override
 	public String toString() {
-		return "CMembresia [idMembresia=" + idMembresia + ", tipoMembresia=" + tipoMembresia + ", precio=" + precio
+		return "[idMembresia=" + idMembresia + ", tipoMembresia=" + tipoMembresia + ", precio=" + precio
 				+ ", meses=" + meses + "]";
 	}
 	

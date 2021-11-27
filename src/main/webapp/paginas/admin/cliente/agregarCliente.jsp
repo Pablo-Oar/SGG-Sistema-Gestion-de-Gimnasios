@@ -55,10 +55,6 @@
   							</c:forEach>
 						</select>
 					</div>
-					<div class="form-group">
-						<label for="estado" class="font-weight-bolder ">Estado:
-						<input type="checkbox" class="form-control" checked name="estado"></input></label>
-					</div>
 				</div>
 				<div class="modal-footer">
 					<button class="btn btn-success font-weight-bolder btn-block" type="submit">Guardar</button>

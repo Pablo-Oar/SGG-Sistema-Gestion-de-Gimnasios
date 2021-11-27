@@ -54,9 +54,9 @@
 							</div>
 						</div>
 						<!-- BOTON PARA AGREGAR UN PRODUCTO AL REGISTRO -->
-						<div class="form-group">
+						<div class="form-group col-sm-7 mx-auto">
 							<a href="${pageContext.request.contextPath}/ServletProductos">
-								<button type="submit" name="accion" value="agregarProducto" class="btn btn-success fas fa-cart-plus">
+								<button type="submit" name="accion" value="agregarProducto" class=" btn btn-success fas fa-cart-plus">
 									&nbsp;Agregar Producto
 								</button>
 							</a>

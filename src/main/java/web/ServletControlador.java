@@ -138,11 +138,12 @@ public class ServletControlador extends HttpServlet {
 		
 		//Lo muestro por consola para verificar
 		for(Cliente cli : clientes) {
-			System.out.println("Clientes: Tipo Membresia: "+ cli.getTipoMembresia()+", Estado Membresia: "+cli.getEstadoMembresia()); 
+			System.out.println("Clientes:"+cli.toString()); 
 		}
 		HttpSession sesion = request.getSession();
 		sesion.setAttribute("clientes", clientes);
 		request.getRequestDispatcher("usuarioAdministrador.jsp").forward(request, response); 
+		this.listarMembresia(request, response);
 	}
 	
 	private void insertarCli(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -155,7 +156,6 @@ public class ServletControlador extends HttpServlet {
 	    String telefono = request.getParameter("telefono");
 	    String direccion = request.getParameter("direccion");
 	    String tipoMembresia = request.getParameter("membresia");
-	    String estado = request.getParameter("estado");
 	    
 	    //Instancio el nuevo objeto cliente (el id no lo proporciono ya que es autoincrementable)
 	    Cliente cliente = new Cliente();
@@ -166,8 +166,7 @@ public class ServletControlador extends HttpServlet {
 	    cliente.setTelefono(telefono);
 	    cliente.setDireccion(direccion);
 	    cliente.setTipoMembresia(tipoMembresia);
-	   	if(estado!= null) {cliente.setEstado(true);}
-	   	else {cliente.setEstado(false);}
+	   	cliente.setEstado(true);//Seteo estado en true por defecto
 	   	
 	   	//Inserto el nuevo objeto en la base de datos 
 		    int registrosModificados = new LogicaCliente().insertarNuevoCliente(cliente);
@@ -207,13 +206,6 @@ public class ServletControlador extends HttpServlet {
 		cliente.setTelefono(request.getParameter("telefono"));
 		cliente.setDireccion(request.getParameter("direccion"));
 		cliente.setTipoMembresia(request.getParameter("membresia"));
-		String estado = request.getParameter("estado");
-		if(estado!= null) {
-	   		cliente.setEstado(true);
-	   	}
-	   	else {
-	   		cliente.setEstado(false);
-	   	}
 		//Modifico el objeto en la base de datos 
 		int registrosModificados = new LogicaCliente().modificarCliente(cliente);
 		//Lo muestro por consola para verificar
@@ -290,7 +282,7 @@ public class ServletControlador extends HttpServlet {
 			//Lo muestro por consola para verificar
 			for(Membresia mem : membresias) 
 			{
-				System.out.println("Membresias: " + mem + "Estado: "+ mem.isEstado()); 
+				System.out.println("Membresias: " + mem ); 
 			}
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("membresias", membresias);

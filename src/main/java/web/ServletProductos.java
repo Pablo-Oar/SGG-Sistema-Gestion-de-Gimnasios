@@ -176,6 +176,7 @@ public class ServletProductos extends HttpServlet
 		HttpSession sesion = request.getSession();
 		sesion.setAttribute("productos", productos);
 		request.getRequestDispatcher("/paginas/vendedor/listadoProductos.jsp").forward(request, response); 
+		this.listarCategoria(request, response);
 	}
 	
 	private void agregarProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
@@ -282,13 +283,8 @@ public class ServletProductos extends HttpServlet
 		producto.setPrecio(Double.parseDouble(request.getParameter("precio")));
 		producto.setStock(Integer.parseInt(request.getParameter("stock")));
 		producto.setDescripcionCategoria(request.getParameter("categoria"));
-		String estado = request.getParameter("estado");
-		if(estado!= null) {
-	   		producto.setEstado(true);
-	   	}
-	   	else {
-	   		producto.setEstado(false);
-	   	}
+		producto.setEstado(true);
+	   	
 		//Modifico el objeto en la base de datos 
 		int registrosModificados = new LogicaProducto().modificarProducto(producto);
 		//Lo muestro por consola para verificar
@@ -304,32 +300,29 @@ public class ServletProductos extends HttpServlet
 	}
 
 	private void insertarProd(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			    
-			    //Instancio el nuevo objeto cliente (el id no lo proporciono ya que es autoincrementable)
-			    Producto producto = new Producto();
-			    producto.setNombre(request.getParameter("nombre"));
-			    producto.setPrecio(Double.parseDouble(request.getParameter("precio")));
-			    producto.setStock(Integer.parseInt(request.getParameter("stock")));
-			    String tipoCategoria = request.getParameter("categoria");
-			    producto.setDescripcionCategoria(tipoCategoria);
-			    producto.setDescripcion(request.getParameter("descripcion"));
-			    String estado = request.getParameter("estado");
-			   	if(estado!= null) {producto.setEstado(true);}
-			   	else {producto.setEstado(false);}
+		//Instancio el nuevo objeto cliente (el id no lo proporciono ya que es autoincrementable)
+	    Producto producto = new Producto();
+		producto.setNombre(request.getParameter("nombre"));
+	    producto.setPrecio(Double.parseDouble(request.getParameter("precio")));
+	    producto.setStock(Integer.parseInt(request.getParameter("stock")));
+	    String tipoCategoria = request.getParameter("categoria");
+	    producto.setDescripcionCategoria(tipoCategoria);
+		producto.setDescripcion(request.getParameter("descripcion"));
+		producto.setEstado(true);//Seteo el estado del producto en true por defecto
 			   	
-			   	//Inserto el nuevo objeto en la base de datos 
-				    int registrosModificados = new LogicaProducto().insertarNuevoProducto(producto);
-				    System.out.println("Registros-Modificados = " + registrosModificados); //Lo muestro por consola para verificar
+	   	//Inserto el nuevo objeto en la base de datos 
+		int registrosModificados = new LogicaProducto().insertarNuevoProducto(producto);
+		System.out.println("Registros-Modificados = " + registrosModificados); //Lo muestro por consola para verificar
 				    
-				    //Le seteo la categoría correspondiente.
-					LogicaCategoria catLogic = new LogicaCategoria();
-					catLogic.modificarCategoriaTipo(producto);
+		//Le seteo la categoría correspondiente.
+		LogicaCategoria catLogic = new LogicaCategoria();
+		catLogic.modificarCategoriaTipo(producto);
 					
-					//Inserto las FK
-					catLogic.insertarIdCategoria(producto);
+		//Inserto las FK
+		catLogic.insertarIdCategoria(producto);
 				    
-				    //Ahora redirijo a la accion por default asi me lista a todos los productos
-				   	this.accionDefault(request, response);
+		//Ahora redirijo a la accion por default asi me lista a todos los productos
+		this.accionDefault(request, response);
 		
 	}
 

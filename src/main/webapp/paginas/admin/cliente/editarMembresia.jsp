@@ -22,7 +22,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<a href="usuarioAdministrador.jsp" class="btn btn-outline-light font-weight-bolder ">
+					<a href="/TP-JAVA-SGG/paginas/admin/cliente/listadoMembresia.jsp" class="btn btn-outline-light font-weight-bolder ">
 						<i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Regresar al inicio
 					</a>
 				</div>

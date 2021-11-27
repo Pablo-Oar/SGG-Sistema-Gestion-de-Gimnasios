@@ -28,10 +28,6 @@
 						<div class="valid-feedback">Valido.</div>
 						<div class="invalid-feedback">Por favor completar stock.</div>
 					</div>
-					<div class="form-group">
-						<label for="estado" class="font-weight-bolder ">Estado
-						<input type="checkbox" class="form-control" checked name="estado"></input></label>
-					</div>
 					<div class="form-group ">
 						<label for="categoria" class="font-weight-bolder ">Categoria:</label>
 						<select class="form-control" class="form-select" name="categoria">
