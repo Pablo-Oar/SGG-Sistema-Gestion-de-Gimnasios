@@ -26,7 +26,7 @@
 			</header>
 			<div class="container shadow-lg  p-4 mb-0.5 bg-white ">
 				<form class="was-validated "
-					action="${pageContext.request.contextPath}/ServletControlador?accion=login"
+					action="${pageContext.request.contextPath}/ServletLogin?accion=login"
 					method="post">
 					<div class="modal-body">
 						<div class="form-group">

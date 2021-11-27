@@ -176,7 +176,7 @@ public class ServletProductos extends HttpServlet
 		HttpSession sesion = request.getSession();
 		sesion.setAttribute("productos", productos);
 		request.getRequestDispatcher("/paginas/vendedor/listadoProductos.jsp").forward(request, response); 
-		this.listarCategoria(request, response);
+
 	}
 	
 	private void agregarProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 

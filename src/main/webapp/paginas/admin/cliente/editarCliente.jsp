@@ -51,51 +51,59 @@
 								<h4>Editar Cliente</h4>
 							</div>
 							<div class="card-body">
-								<div class="form-group">
-									<label for="nombre" class="font-weight-bolder">Nombre</label>
-									<input type="text" class="form-control" name="nombre" value="<%=cliente.getNombre()%>" required>
-									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar nombre.</div>
+								<div class="d-flex form-group">
+									<div class="col-sm-6" >
+										<label for="nombre" class="font-weight-bolder">Nombre</label>
+										<input type="text" class="form-control" name="nombre" value="<%=cliente.getNombre()%>" required>
+										<div class="valid-feedback">Valido.</div>
+										<div class="invalid-feedback">Por favor completar nombre.</div>
+									</div>
+									<div class="col-sm-6" >
+										<label for="apellido" class="font-weight-bolder">Apellido</label>
+										<input type="text" class="form-control" name="apellido"  value="${cliente.apellido}" required>
+										<div class="valid-feedback">Valido.</div>
+										<div class="invalid-feedback">Por favor completar apellido.</div>
+									</div>
+								</div>
+								<div class="d-flex form-group">
+									<div class="col-sm-6" >
+										<label for="email" class="font-weight-bolder">Email</label>
+										<input type="email" class="form-control" name="email" required placeholder="email@email.com " 
+												pattern="/([a-zA-Z0-9]+)([\_\.\-{1}])?([a-zA-Z0-9]+)\@([a-zA-Z0-9]+)([\.])([a-zA-Z\.]+)/g" 
+												value="${cliente.email}"></input>
+										<div class="valid-feedback">Valido.</div>
+										<div class="invalid-feedback">Por favor completar email.</div>
+									</div>
+									<div class="col-sm-6" >
+										<label for="apellido" class="font-weight-bolder">Dni</label>
+										<input type="text" class="form-control" name="dni" required value="${cliente.dni}">
+										<div class="valid-feedback">Valido.</div>
+										<div class="invalid-feedback">Por favor completar dni.</div>
+									</div>
+								</div>
+								<div class="d-flex form-group">
+									<div class="col-sm-6" >
+										<label for="telefono" class="font-weight-bolder">Telefono</label>
+										<input type="tel" class="form-control" name="telefono" required value="${cliente.telefono}">
+										<div class="valid-feedback">Valido.</div>
+										<div class="invalid-feedback">Por favor completar telefono.</div>
+									</div>
+									<div class="col-sm-6" >
+										<label for="direccion" class="font-weight-bolder">Direccion</label>
+										<input type="text" class="form-control" name="direccion" required value="${cliente.direccion}">
+										<div class="valid-feedback">Valido.</div>
+										<div class="invalid-feedback">Por favor completar domicilio.</div>
+									</div>
 								</div>
 								<div class="form-group">
-									<label for="apellido" class="font-weight-bolder">Apellido</label>
-									<input type="text" class="form-control" name="apellido"  value="${cliente.apellido}" required>
-									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar apellido.</div>
-								</div>
-								<div class="form-group">
-									<label for="email" class="font-weight-bolder">Email</label>
-									<input type="email" class="form-control" name="email" required placeholder="email@email.com " 
-											pattern="/([a-zA-Z0-9]+)([\_\.\-{1}])?([a-zA-Z0-9]+)\@([a-zA-Z0-9]+)([\.])([a-zA-Z\.]+)/g" 
-											value="${cliente.email}"></input>
-									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar email.</div>
-								</div>
-									<div class="form-group">
-									<label for="apellido" class="font-weight-bolder">Dni</label>
-									<input type="text" class="form-control" name="dni" required value="${cliente.dni}">
-									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar dni.</div>
-								</div>
-								<div class="form-group">
-									<label for="telefono" class="font-weight-bolder">Telefono</label>
-									<input type="tel" class="form-control" name="telefono" required value="${cliente.telefono}">
-									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar telefono.</div>
-								</div>
-								<div class="form-group">
-									<label for="direccion" class="font-weight-bolder">Direccion</label>
-									<input type="text" class="form-control" name="direccion" required value="${cliente.direccion}">
-									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar domicilio.</div>
-								</div>
-								<div class="form-group ">
-									<label for="membresia" class="font-weight-bolder">Tipo Membresia:</label>
-									<select class="form-control" class="form-select" name="membresia" id="membresia" >
-  									<c:forEach var="membresias" items="${membresias}">
-  										<option value="${membresias.tipoMembresia}">${membresias.tipoMembresia}</option>
-  									</c:forEach>
-									</select>
+									<div class="col-sm-6 " >
+										<label for="membresia" class="font-weight-bolder">Tipo Membresia:</label>
+										<select class="form-control" class="form-select" name="membresia" id="membresia" >
+  										<c:forEach var="membresias" items="${membresias}">
+  											<option value="${membresias.tipoMembresia}">${membresias.tipoMembresia}</option>
+  										</c:forEach>
+										</select>
+									</div>
 								</div>
 							</div>
 						</div>

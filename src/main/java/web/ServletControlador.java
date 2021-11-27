@@ -38,101 +38,61 @@ public class ServletControlador extends HttpServlet {
 		String accion = request.getParameter("accion"); 
 		if(accion!=null) {
 			switch(accion) {
-			case "editarCliente": 
-				this.editarCli(request, response); 
-				break;
-			case "eliminarCliente":
-                this.borrarCli(request, response);
-                break;
-			case "editarMembresia":
-				this.editarMembresia(request,response);
-				break;
-			case "eliminarMembresia":
-				this.eliminarMembresia(request,response);
-				break;
-			case "irMembresia":
-                this.listarMembresia(request, response);
-                break;
-			}
-		}else if (request.getParameter("cambiarEstadoCliente") != null) {
-            cambiarEstadoCliente(request, response);
-        }else if (request.getParameter("cambiarEstadoMembresia") != null) {
-            cambiarEstadoMembresia(request, response);
-        }
-		else {
-			this.accionDefault(request, response); //Si la accion es nula muestro los mismos clientes.
-		}
-	}
-
-
-
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Recupero la accion a realizar por algun boton.
-		String accion = request.getParameter("accion"); 
-		if(accion!=null) {
-			switch(accion) {
-			case "login": this.verificarLogin(request, response); 
+			case "listarClientes":this.accionDefault(request, response);
+            break;
+			case "editarCliente":this.editarCli(request, response); 
 			break;
+			case "eliminarCliente":this.borrarCli(request, response);
+            break;
 			case "insertarCliente": this.insertarCli(request, response); 
-				break;
+			break;
 			case "modificarCliente": this.actualizarCli(request, response);
-				break;
+			break;
 			case "encontrarClienteApellido": this.encontrarCliAp(request, response); 
 			break;
 			case "insertarMembresia": this.insertarMembresia(request, response); 
 			break;
 			case "modificarMembresia": this.actualizarMembresia(request, response); 
 			break;
-			default: this.accionDefault(request, response);
+			case "editarMembresia":this.editarMembresia(request,response);
+			break;
+			case "eliminarMembresia":this.eliminarMembresia(request,response);
+			break;
+			case "irMembresia":this.listarMembresia(request, response);
+            break;
 			}
 		}else if (request.getParameter("cambiarEstadoCliente") != null) {
             cambiarEstadoCliente(request, response);
         }else if (request.getParameter("cambiarEstadoMembresia") != null) {
             cambiarEstadoMembresia(request, response);
-        }else {
-			this.accionDefault(request, response); //Si la accion es nula muestro los mismos clientes.
-		}
+        }
+	}
+
+
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			//Recupero la accion a realizar por algun boton.
+			String accion = request.getParameter("accion"); 
+			if(accion!=null) {
+				switch(accion) {
+				case "insertarCliente": this.insertarCli(request, response); 
+					break;
+				case "modificarCliente": this.actualizarCli(request, response);
+					break;
+				case "encontrarClienteApellido": this.encontrarCliAp(request, response); 
+				break;
+				case "insertarMembresia": this.insertarMembresia(request, response); 
+				break;
+				case "modificarMembresia": this.actualizarMembresia(request, response); 
+				break;
+				default: this.accionDefault(request, response);
+				}
+			}else {
+				this.accionDefault(request, response); //Si la accion es nula muestro los mismos clientes.
+			}
 	}
 	
-
-	private void verificarLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LogicaLogin crtlLogin = new LogicaLogin();
-		Usuario usuario = new Usuario();
-		
-		usuario.setEmail(request.getParameter("email"));
-		usuario.setPassword(request.getParameter("password"));
-		usuario = crtlLogin.validar(usuario);
-		if(usuario!= null && usuario.getRol().getDescripcion().equals("administrador")) 
-		{
-			HttpSession sesion = request.getSession();
-			sesion.setAttribute("usuario", usuario);	
-			this.accionDefault(request, response);
-		}
-		else if(usuario!= null && usuario.getRol().getDescripcion().equals("vendedor")) 
-		{
-		
-			HttpSession sesion = request.getSession();
-			sesion.setAttribute("usuario", usuario);
-			request.getRequestDispatcher("usuarioVendedor.jsp").forward(request, response);
-		}
-		else if(usuario!= null && usuario.getRol().getDescripcion().equals("profesor")) 
-		{
-			HttpSession sesion = request.getSession();
-			sesion.setAttribute("usuario", usuario);	
-			request.getRequestDispatcher("usuarioProfesor.jsp").forward(request, response);
-		}
-		else 
-		{
-			HttpSession sesionIncorrecta = request.getSession();
-			sesionIncorrecta.setAttribute("usuario", null);
-			sesionIncorrecta.invalidate();
-			request.getSession().setAttribute("estado", "Usuario o contraseña incorrectos");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-			 			
-		}
-		
-	}
 	private void accionDefault(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Cliente> clientes = new LogicaCliente().listarClientes();
 		
@@ -276,7 +236,7 @@ public class ServletControlador extends HttpServlet {
 	
 	
 //-----------------------------------------MEMBRESIA------------------------------------------------------------------------
-	   
+
 		private void listarMembresia(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			List<Membresia> membresias = new LogicaMembresia().listarMembresias();
 			//Lo muestro por consola para verificar

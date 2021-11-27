@@ -34,7 +34,7 @@
   						</div>
   					</div>
   					<div class="card-body">
-					<table class="table table-hover list-group-item-dark">
+					<table class="table table-hover list-group-item-dark text-center">
 						<thead class="thead-dark">
 							<tr>
 								<th>#</th> 

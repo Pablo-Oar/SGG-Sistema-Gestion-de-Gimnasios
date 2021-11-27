@@ -76,7 +76,7 @@
   				</div>
 				<div class="card-body border-bottom border-dark">
 					<br>
-					<table class="table table-hover list-group-item-dark">
+					<table class="table table-hover list-group-item-dark text-center">
 						<thead class="thead-dark">
 							<tr>
 								<th>Nro</th>

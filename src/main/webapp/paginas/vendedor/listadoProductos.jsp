@@ -41,8 +41,8 @@
   					</div>
   					<div class="card-body">
 					<table class="table table-hover list-group-item-dark">
-						<thead class="thead-dark">
-							<tr>
+						<thead class="thead-dark text-center">
+							<tr class="text-center">
 								<th>#</th> 
 								<th>Nombre</th>	
 								<th>Precio</th>
@@ -58,8 +58,8 @@
 								<tr>
 									<td>${status.count}</td>
 									<td class="text-center">${productos.nombre}</td>
-									<td>${productos.precio}</td>
-									<td>${productos.stock}</td>
+									<td class="text-center">${productos.precio}</td>
+									<td class="text-center">${productos.stock}</td>
 									<c:if test="${productos.estado == true}">
                                     	<td><span class="badge badge-pill badge-success active">Producto Activo</span></td> 
                                     </c:if>
@@ -68,7 +68,7 @@
                                     </c:if>
 									<td class="text-center">${productos.categoria.descripcion}</td>	
 									<td>${productos.descripcion}</td>	
-									<td class="d-flex">
+									<td class="d-flex text-center">
 										<c:choose>	
 											<c:when test="${productos.estado == true}">
 												<input type="hidden" id="item" value ="${productos.idProducto}">

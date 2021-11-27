@@ -51,38 +51,43 @@
 								<h4>Editar Producto</h4>
 							</div>
 							<div class="card-body">
-								<div class="form-group">
-									<label for="nombre" class="font-weight-bolder">Nombre</label>
-									<input type="text" class="form-control" name="nombre" value="<%=producto.getNombre()%>" required>
-									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar nombre de producto.</div>
+								<div class="d-flex form-group">
+									<div class="col-sm-6" >
+										<label for="nombre" class="font-weight-bolder">Nombre</label>
+										<input type="text" class="form-control" name="nombre" value="<%=producto.getNombre()%>" required>
+										<div class="valid-feedback">Valido.</div>
+										<div class="invalid-feedback">Por favor completar nombre de producto.</div>
+									</div>
+									<div class="col-sm-6" >
+										<label for="precio" class="font-weight-bolder">Precio</label>
+										<input type="text" class="form-control" name="precio"  value="${producto.precio}" required>
+										<div class="valid-feedback">Valido.</div>
+										<div class="invalid-feedback">Por favor completar precio del producto.</div>
+									</div>
 								</div>
-								<div class="form-group">
-									<label for="precio" class="font-weight-bolder">Precio</label>
-									<input type="text" class="form-control" name="precio"  value="${producto.precio}" required>
-									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar precio del producto.</div>
+								<div class="d-flex form-group">
+									<div class="col-sm-6" >
+										<label for="stock" class="font-weight-bolder">Stock</label>
+										<input type="text" class="form-control" name="stock" required value="${producto.stock}">
+										<div class="valid-feedback">Valido.</div>
+										<div class="invalid-feedback">Por favor completar Strock.</div>
+									</div>
+									<div class="col-sm-6" >
+										<label for="categoria" class="font-weight-bolder">Tipo Categoria:</label>
+										<select class="form-control" class="form-select" name="categoria" id="categoria" >
+  										<c:forEach var="categorias" items="${categorias}">
+  											<option value="${categorias.descripcion}">${categorias.descripcion}</option>
+  										</c:forEach>
+										</select>
+									</div>
 								</div>
-								<div class="form-group">
-									<label for="stock" class="font-weight-bolder">Stock</label>
-									<input type="text" class="form-control" name="stock" required value="${producto.stock}">
-									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar Strock.</div>
-								</div>
-								<div class="form-group ">
-									<label for="categoria" class="font-weight-bolder">Tipo Categoria:</label>
-									<select class="form-control" class="form-select" name="categoria" id="categoria" >
-  									<c:forEach var="categorias" items="${categorias}">
-  										<option value="${categorias.descripcion}">${categorias.descripcion}</option>
-  									</c:forEach>
-									</select>
-								</div>
-								
-								<div class="form-group" class="mb-3">
-									<label for="descripcion" class="font-weight-bolder">Descripcion</label>
-									<textarea class="form-control" name="descripcion" rows="3" required >${producto.descripcion}</textarea>	
-									<div class="valid-feedback">Valido.</div>
-									<div class="invalid-feedback">Por favor completar descripcion.</div>
+								<div class="form-group d-flex" class="mb-3">
+									<div class="col-sm-12" >
+										<label for="descripcion" class="font-weight-bolder">Descripcion</label>
+										<textarea class="form-control" name="descripcion" rows="3" required >${producto.descripcion}</textarea>	
+										<div class="valid-feedback">Valido.</div>
+										<div class="invalid-feedback">Por favor completar descripcion.</div>
+									</div>
 								</div>
 							</div>
 						</div>
