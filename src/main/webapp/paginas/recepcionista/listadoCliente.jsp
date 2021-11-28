@@ -10,7 +10,7 @@
  <jsp:include page="/paginas/comunes/metas.jsp"/>
 <title>Sistema de Gestion de Gimnasios</title>
 					<!-- Encabezado home -->
-<jsp:include page="/paginas/recepcionista/home/encabezadoHome.jsp"/>
+<jsp:include page="/paginas/comunes/encabezado.jsp"/>
 </head>
 
 <body class="bg-secondary">

@@ -10,7 +10,7 @@
  <jsp:include page="/paginas/comunes/metas.jsp"/>
 <title>Editar producto</title>
 	<!-- Encabezado home -->
-<jsp:include page="/paginas/recepcionista//home/encabezadoHome.jsp"/>
+<jsp:include page="/paginas/comunes/encabezado.jsp"/>
 <%Producto producto = (Producto) session.getAttribute("producto"); %>
 <% Usuario usuario = ((Usuario)session.getAttribute("usuario"));%>
 </head>

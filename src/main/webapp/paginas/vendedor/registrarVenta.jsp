@@ -9,7 +9,7 @@
  <jsp:include page="/paginas/comunes/metas.jsp"/>
 <title>Registrar Ventas</title>
 				<!-- Encabezado home -->
-<jsp:include page="/paginas/recepcionista//home/encabezadoHome.jsp"/>
+<jsp:include page="/paginas/comunes/encabezado.jsp"/>
 	<style type="text/css">
 		@media print{
 			.parteAgregarProducto, .btn, .acciones, .card-footer, .fa-dollar-sign, .piePagina {
