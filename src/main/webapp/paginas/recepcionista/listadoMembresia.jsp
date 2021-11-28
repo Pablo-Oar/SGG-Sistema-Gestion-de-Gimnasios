@@ -8,7 +8,7 @@
 	<jsp:include page="/paginas/comunes/metas.jsp"/>
 	<title>Sistema de Gestion de Gimnasios</title>
 			<!-- Encabezado home -->
-	<jsp:include page="/paginas/admin//home/encabezadoHome.jsp"/>
+	<jsp:include page="/paginas/recepcionista//home/encabezadoHome.jsp"/>
 </head>
 <body class="bg-secondary">
 	
@@ -87,7 +87,7 @@
 	</div>
 	
 <!-- Agregar un membresia (modal) -->
-<jsp:include page="/paginas/admin/cliente/agregarMembresia.jsp"></jsp:include>
+<jsp:include page="/paginas/recepcionista/agregarMembresia.jsp"></jsp:include>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

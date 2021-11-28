@@ -8,13 +8,13 @@
 	<jsp:include page="/paginas/comunes/metas.jsp"/>
 	<title>Home</title>
 			<!-- Encabezado home -->
-	<jsp:include page="/paginas/admin//home/encabezadoHome.jsp"/>
+	<jsp:include page="/paginas/recepcionista/home/encabezadoHome.jsp"/>
 </head>
 <body class="bg-secondary bg-gradient">
 <br><br>
 
 	 		<!-- Solo muestro listado de clientes -->
- <jsp:include page="/paginas/admin/home/listadoHome.jsp"/>
+ <jsp:include page="/paginas/recepcionista/home/listadoHome.jsp"/>
 
  
 			<!-- jQuery first, then Popper.js, then Bootstrap JS -->

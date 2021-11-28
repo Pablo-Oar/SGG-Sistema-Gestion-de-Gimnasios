@@ -13,7 +13,7 @@
 <body class="bg-secondary">
 
 	<!-- Cabecero Control de Clientes -->
-	<jsp:include page="/paginas/admin/home/encabezadoHome.jsp"/>
+	<jsp:include page="/paginas/recepcionista/home/encabezadoHome.jsp"/>
 	
 	<section id="actions" class= "py-4 mb-4 bg-secondary">
 		<div class="container">

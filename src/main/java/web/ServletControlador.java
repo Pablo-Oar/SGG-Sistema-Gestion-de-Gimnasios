@@ -150,7 +150,7 @@ public class ServletControlador extends HttpServlet {
 		cliente = new LogicaCliente().encontrarClienteId(cliente);
 		HttpSession sesion = request.getSession();
 		sesion.setAttribute("cliente", cliente);
-		request.getRequestDispatcher("/paginas/admin/cliente/editarCliente.jsp").forward(request, response);
+		request.getRequestDispatcher("/paginas/recepcionista/editarCliente.jsp").forward(request, response);
 	}
 	
 	
@@ -202,7 +202,7 @@ public class ServletControlador extends HttpServlet {
 		List<Cliente> clientes = new LogicaCliente().encontrarClienteApellido(cliente);
 		
 		request.setAttribute("clientes", clientes);
-        request.getRequestDispatcher("/paginas/admin/cliente/mostrarCliente.jsp").forward(request, response);
+        request.getRequestDispatcher("/paginas/recepcionista/mostrarCliente.jsp").forward(request, response);
 	}
 	
 	//(BAJA LÓGICA)
@@ -246,7 +246,7 @@ public class ServletControlador extends HttpServlet {
 			}
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("membresias", membresias);
-			request.getRequestDispatcher("/paginas/admin/cliente/listadoMembresia.jsp").forward(request, response); 
+			request.getRequestDispatcher("/paginas/recepcionista/listadoMembresia.jsp").forward(request, response); 
 			//response.sendRedirect("/paginas/admin/cliente/listadoMembresia.jsp");
 		}
 		
@@ -256,7 +256,7 @@ public class ServletControlador extends HttpServlet {
 			membresia = new LogicaMembresia().encontrarMembresiaId(membresia);
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("membresia", membresia);
-			request.getRequestDispatcher("/paginas/admin/cliente/editarMembresia.jsp").forward(request, response);
+			request.getRequestDispatcher("/paginas/recepcionista/editarMembresia.jsp").forward(request, response);
 		}
 		
 		private void actualizarMembresia(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

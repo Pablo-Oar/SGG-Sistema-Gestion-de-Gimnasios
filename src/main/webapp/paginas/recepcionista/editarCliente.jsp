@@ -10,7 +10,7 @@
  <jsp:include page="/paginas/comunes/metas.jsp"/>
 <title>Editar cliente</title>
 	<!-- Encabezado home -->
-<jsp:include page="/paginas/admin//home/encabezadoHome.jsp"/>
+<jsp:include page="/paginas/recepcionista//home/encabezadoHome.jsp"/>
 <%Cliente cliente = (Cliente) session.getAttribute("cliente"); %>
 <%Membresia membresia = (Membresia) session.getAttribute("membresia"); %>
 </head>

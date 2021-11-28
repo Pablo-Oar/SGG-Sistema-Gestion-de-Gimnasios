@@ -8,7 +8,7 @@
 	<jsp:include page="/paginas/comunes/metas.jsp"/>
 	<title>Home</title>
 			<!-- Encabezado home -->
-	<jsp:include page="/paginas/admin//home/encabezadoHome.jsp"/>
+	<jsp:include page="/paginas/recepcionista/home/encabezadoHome.jsp"/>
 </head>
 <body>
 <br><br>

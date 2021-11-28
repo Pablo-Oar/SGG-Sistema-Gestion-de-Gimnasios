@@ -45,7 +45,7 @@ public class ServletLogin extends HttpServlet {
 
 	
 	private void verificarLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LogicaLogin crtlLogin = new LogicaLogin();
+		LogicaLogin crtlLogin = new LogicaLogin(); 
 		Usuario usuario = new Usuario();
 		
 		usuario.setEmail(request.getParameter("email"));
@@ -56,6 +56,12 @@ public class ServletLogin extends HttpServlet {
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("usuario", usuario);	
 			request.getRequestDispatcher("/ServletControlador").include(request, response);
+		}else if(usuario!= null && usuario.getRol().getDescripcion().equals("recepcionista")) 
+		{
+		
+			HttpSession sesion = request.getSession();
+			sesion.setAttribute("usuario", usuario);
+			request.getRequestDispatcher("/ServletControlador").forward(request, response);
 		}
 		else if(usuario!= null && usuario.getRol().getDescripcion().equals("vendedor")) 
 		{
