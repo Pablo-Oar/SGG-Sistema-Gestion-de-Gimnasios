@@ -31,6 +31,9 @@
 >###### Editar Cliente: 
 ![EditarCliente](https://user-images.githubusercontent.com/80583829/143680301-71e63183-d536-4e64-9942-4c8035ef5159.png)
 
+>###### Buscar Cliente:
+![Buscar Cliente](https://user-images.githubusercontent.com/80583829/143730753-bc893d7a-d8ec-4255-a414-4e73de804b8e.png)
+
 >###### Membresia:
   ![ListadoMembresia](https://user-images.githubusercontent.com/80583829/143680350-7891fd4f-d6ca-48c8-865f-aabaa0944d6c.png)
 
@@ -48,6 +51,9 @@
 
 >###### Editar Producto:
  ![EditarProducto](https://user-images.githubusercontent.com/80583829/143680482-2023ac50-ce7e-455e-b841-158b40714d4b.png)
+
+>###### Buscar Producto:
+![BuscarProducto](https://user-images.githubusercontent.com/80583829/143730758-4e51dcf4-f4a3-4971-9b96-f730571a08b6.png)
 
 >###### Categoría:
  ![LisctadoCategoria](https://user-images.githubusercontent.com/80583829/143680524-4870dac8-dd3b-4b1a-a3fe-9bb6329b297b.png)
