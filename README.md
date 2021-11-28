@@ -1,8 +1,9 @@
 # Sistema para la Gestion de Gimnasios (SGG).
 **Sistema Web para facilitar, organizar y administrar las diferentes tareas en un gimnasio.**
-  * [x] Usuario para Recepcionista: Visualizará los clientes ya registrados en el sistema, buscar clientes por apellido, verificar si estan activos o no. Podrá realizar el ingreso de nuevos clientes asignarles un tipo de membresia y tambien modificar datos de clientes ya ingresados. 
-  * [x] Usuario para el Area De Ventas: Podrá visualizar, editar, añadir productos y asignarles una categorias. Además será el encargado de realizar las ventas pudiendo añadir al carrito los diferentes productos solicitados por el cliente, deberá registrar la venta y emitir dicho comprobante.
-  * [ ] Usuario para Profesor: Podrá visualizar, añadir y editar rutinas de entrenamiento, lo mismo con las diferentes clases que se dicten en el gimnasio. 
+  * [x] **Usuario Administrador:** Tiene permitido visualizar y realizar todo tipo de cambios. 
+  * [x] **Usuario Recepcionista:** Visualizará los clientes ya registrados en el sistema, buscar clientes por apellido, verificar si estan activos o no. Podrá realizar el ingreso de nuevos clientes asignarles un tipo de membresia y tambien modificar datos de clientes ya ingresados. 
+  * [x] **Usuario Ventas:** Podrá visualizar, editar, añadir productos y asignarles una categorias. Además será el encargado de realizar las ventas pudiendo añadir al carrito los diferentes productos solicitados por el cliente, deberá registrar la venta y emitir dicho comprobante.
+  * [ ] **Usuario Profesor:** Podrá visualizar, añadir y editar rutinas de entrenamiento, lo mismo con las diferentes clases que se dicten en el gimnasio. 
 
 ## Capturas:
 
@@ -12,8 +13,11 @@
 
 ![Login01](https://user-images.githubusercontent.com/80583829/143680092-cda485bd-5656-4a1b-a42b-83021582d20a.png)
 
->###### HomeAdmin:
+>###### Home Administrador:
  ![HomeAdmin](https://user-images.githubusercontent.com/80583829/143680182-df2c6a72-1868-4dfb-8040-461b54180487.png)
+
+>###### Home Recepcionista:
+![HomeRecepcionista](https://user-images.githubusercontent.com/80583829/143728903-dff507c0-63c4-4a90-9a78-d25701cf782e.png)
 
 >###### Home Vendedor: 
 ![HomeVendedor](https://user-images.githubusercontent.com/80583829/143680230-128c49b6-70cb-4b50-9109-1b0937ca1287.png)
