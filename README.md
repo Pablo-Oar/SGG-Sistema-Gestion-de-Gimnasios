@@ -67,6 +67,9 @@
 >###### Registrar Venta: 
 ![RegistarVenta](https://user-images.githubusercontent.com/80583829/143680585-f0edbfcc-310e-4055-8350-636127f22049.png)
 
+>###### Reporte de Venta: 
+![ReporteVenta](https://user-images.githubusercontent.com/80583829/143898620-4247f57a-3374-4a81-a0ed-41b14e2ff964.jpg)
+
 
 ## Contenido
 
